@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>teste</p>
+    <p>PAGINA INICIAL</p>
   </div>
 </template>
