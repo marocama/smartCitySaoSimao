@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-20 grid grid-cols-3 gap-5">
+  <div class="grid grid-cols-4 gap-5">
     <Card v-for="(item, index) in list" :key="index" />
   </div>
 </template>
