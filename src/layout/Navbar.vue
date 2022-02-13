@@ -66,9 +66,8 @@
               </div>
               <transition enter-class="transform opacity-0 scale-95" enter-active-class="transition ease-out duration-100" enter-to-class="transform opacity-100 scale-100" leave-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-to-class="transform opacity-0 scale-95">
                 <div v-if="user" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" style="z-index: 2">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Meu perfil</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sair</a>
                 </div>
               </transition>
             </div>
