@@ -25,11 +25,14 @@ const storage = firebase.storage()
 const storageRef = firebase.storage().ref()
 const GoogleProvider = new firebase.auth.GoogleAuthProvider()
 
+const GuideColl = db.collection('Guide')
+
 export {
   db, 
   auth,
   field,
   storage,
+  GuideColl,
   storageRef,
   GoogleProvider,
 }

@@ -3,12 +3,8 @@
     <!-- Carrossel -->
     <div class="swiperCarousel swiper-button-hidden relative rounded-b-xl overflow-hidden text-white z-0">
       <div class="swiper-wrapper">
-        <div class="swiper-slide flex justify-center">
-          <img class="h-40 w-full object-cover rounded-t-lg swiper-lazy" src="https://pesweb.azureedge.net/spimg/restaurantphotos/5-star-hotel-porto-restaurant-details-new.jpg?scale=downscaleonly&encoder=freeimage&progressive=true&quality=70&w=775&h=530&mode=crop" alt="Restaurante" />
-          <div class="swiper-lazy-preloader" />
-        </div>
-        <div class="swiper-slide flex justify-center">
-          <img class="h-40 w-full object-cover rounded-t-lg swiper-lazy" src="https://pesweb.azureedge.net/spimg/restaurantphotos/5-star-hotel-porto-restaurant-details-new.jpg?scale=downscaleonly&encoder=freeimage&progressive=true&quality=70&w=775&h=530&mode=crop" alt="Restaurante" />
+        <div v-for="(item, index) in data.Images" :key="index" class="swiper-slide flex justify-center">
+          <img class="h-40 w-full object-cover rounded-t-lg swiper-lazy" :src="item" />
           <div class="swiper-lazy-preloader" />
         </div>
       </div>
@@ -18,8 +14,8 @@
     <!-- Conteúdo -->
     <div class="py-1 px-3 flex justify-between items-center">
       <div>
-        <p class="text-lg font-medium">Restaurante Vila Nova</p>
-        <p class="text-sm text-gray-500">Restaurante</p>
+        <p class="text-lg font-medium">{{ data.Name }}</p>
+        <p class="text-sm text-gray-500">{{ data.Category }}</p>
       </div>
       <!-- Contato -->
       <div class="flex" style="height: min-content">
@@ -35,6 +31,8 @@ import 'swiper/swiper-bundle.css'
 import Swiper, { Navigation, Lazy } from 'swiper'
 
 export default {
+  props: { data: { type: Object, required: true } },
+
   components: {
     Dropdown: () => import('@/components/Buttons/Dropdown')
   },
