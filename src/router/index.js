@@ -19,7 +19,7 @@ const routes = [
         name: 'Onde Comer',
         component: () => import(/* webpackChunkName: "eat" */ '@/views/Public/Guide/Eat/Index'),
       }
-    ]
+    ] 
   },
   {
     path: '*',
