@@ -15,6 +15,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
     children: [
       {
+        path: 'announce',
+        name: 'Anunciar',
+        component: () => import(/* webpackChunkName: "announce" */ '@/views/Public/Guide/Announce'),
+      },
+      {
         path: 'eat',
         name: 'Onde Comer',
         component: () => import(/* webpackChunkName: "eat" */ '@/views/Public/Guide/Eat/Index'),
