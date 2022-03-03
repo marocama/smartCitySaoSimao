@@ -23,8 +23,18 @@ const routes = [
         path: 'eat',
         name: 'Onde Comer',
         component: () => import(/* webpackChunkName: "eat" */ '@/views/Public/Guide/Eat/Index'),
+      },
+      {
+        path: 'company/:id',
+        name: 'Comércio',
+        component: () => import(/* webpackChunkName: "company" */ '@/views/Public/Guide/Company/Index'),
       }
     ] 
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import(/* webpackChunkName: "profile" */ '@/views/Logged/Profile/Index'),
   },
   {
     path: '*',
