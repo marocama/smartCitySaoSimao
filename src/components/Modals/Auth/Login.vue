@@ -2,14 +2,14 @@
   <modal id="login" width="25%">
     <!-- Email -->
     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-    <input id="email" name="email" type="email" autocomplete="off" required class="mt-1 py-2 px-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    <Input v-model="form.email" type="email" required :loading="loading" />
     <!-- Senha -->
     <label for="password" class="mt-4 block text-sm font-medium text-gray-700">Senha</label>
-    <input id="password" name="password" type="password" required class="mt-1 py-2 px-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    <Input v-model="form.password" type="password" required :loading="loading" />
     <!-- Esqueci minha senha -->
     <button type="button" class="mt-2 w-full text-right font-medium text-sm text-indigo-600 hover:text-indigo-500">Esqueceu sua senha?</button>
     <!-- Entrar -->
-    <button @click="login" type="submit" class="mt-3 py-2 px-4 w-full flex justify-center border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Entrar</button>
+    <Button @click="login" text="Entrar" type="submit" :loading="loading" />
     <!-- Registrar -->
     <div class="mt-2 w-full text-center space-x-1">
       <span class="font-medium text-gray-600">Não possui conta?</span>
@@ -19,11 +19,33 @@
 </template>
 
 <script>
+import { auth } from '@/firebase'
+
 export default {
+  components: {
+    Input: () => import('@/components/Inputs/Default'),
+    Button: () => import('@/components/Buttons/Default'),
+  },
+
+  data() { return {
+    form: {
+      email: '',
+      password: ''
+    },
+    loading: false
+  } },
+
   methods: {
     async login() {
-      // faz login
-      console.log("realizando login")
+      this.loading = true
+      await auth.signInWithEmailAndPassword(this.form.email, this.form.password)
+      .then(() => { this.$toast.success('Login efetuado com sucesso'), this.$store.dispatch('modals/close', 'login') })
+      .catch(err => this.$toast.error({ 
+        'auth/invalid-email': 'E-mail inválido, tente novamente', 
+        'auth/user-disabled': 'Conta desativada, entre em contato', 
+        'auth/user-not-found': 'Conta não localizada, tente novamente', 
+        'auth/wrong-password': 'Senha incorreta, tente novamente' }[err.code] || 'Erro ao entrar, tente novamente'))
+      this.loading = false
     }
   }
 }
