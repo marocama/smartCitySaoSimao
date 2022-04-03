@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { auth } from '@/firebase'
+import { auth, UsersColl } from '@/firebase'
 
 export default {
   data() { return {
@@ -37,13 +37,19 @@ export default {
     async register() {
       this.loading = true
       auth.createUserWithEmailAndPassword(this.form.email, this.form.password)
-      .then(result => { console.log(result) })
+      .then(async result => {
+        await UsersColl.doc(result.user.uid).set({
+          Name: this.form.name
+        })
+        this.$toast.success('Conta criada com sucesso')
+        this.$store.dispatch('modals/close', 'register')
+      })
       .catch(err => { 
         this.$toast.error({ 
-          'auth/invalid-email': 'E-mail inválido, tente novamente.', 
-          'auth/email-already-in-use': 'E-mail já vinculado, tente novamente.', 
-          'auth/weak-password': 'Senha fraca, tente novamente.' 
-        }[err.code] || err.response?.data?.message || 'Ocorreu um erro, tente novamente.')
+          'auth/invalid-email': 'E-mail inválido, tente novamente', 
+          'auth/email-already-in-use': 'E-mail já vinculado, tente novamente', 
+          'auth/weak-password': 'Senha fraca, tente novamente' 
+        }[err.code] || err.response?.data?.message || 'Ocorreu um erro, tente novamente')
       })
       this.loading = false
     }
