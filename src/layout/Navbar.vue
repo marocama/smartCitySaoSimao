@@ -17,19 +17,6 @@
             </div>
           </div>
         </div>
-        <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
-          <div class="max-w-lg w-full lg:max-w-xs">
-            <label for="search" class="sr-only">Search</label>
-            <div class="relative">
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <input id="search" name="search" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-300 text-white placeholder-white focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 sm:text-sm" placeholder="Search" type="search">
-            </div>
-          </div>
-        </div>
         <div class="flex lg:hidden">
           <!-- Mobile menu button -->
           <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -56,7 +43,8 @@
             </svg>
           </button>
         </div>
-        <div class="hidden lg:block lg:ml-4">
+        <div class="flex">
+        <div class="hidden lg:block lg:ml-4 mr-3">
           <div class="flex items-center">
             <div class="ml-4 relative flex-shrink-0">
               <div>
@@ -72,6 +60,12 @@
               </transition>
             </div>
           </div>
+        </div>
+        <router-link to="/guide/announce">
+        <button type="button" class="p-2 bg-gray-300 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" d="M3 6c0-1.1.9-2 2-2h8l4-4h2v16h-2l-4-4H5a2 2 0 0 1-2-2H1V6h2zm8 9v5H8l-1.67-5H5v-2h8v2h-2z"/></svg>
+        </button>
+        </router-link>
         </div>
       </div>
     </div>

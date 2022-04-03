@@ -17,12 +17,11 @@
       </div>
       <div class="hidden sm:block">
         <div class="border-b border-gray-200">
-          <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+          <nav class="justify-center -mb-px flex space-x-8" aria-label="Tabs">
             <a v-for="(item, index) in menu" :key="index" href="#" class="py-4 px-1 inline-flex items-center text-gray-500 hover:text-gray-700 font-medium text-sm border-b-2 border-transparent hover:border-gray-300 group">
               <svg class="text-gray-400 group-hover:text-gray-500 -ml-0.5 mr-2 h-5 w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20" v-html="item.icon" />
               <span>{{ item.label }}</span>
             </a>
-            <router-link to="/guide/announce">anunciar</router-link>
           </nav>
         </div>
       </div>
