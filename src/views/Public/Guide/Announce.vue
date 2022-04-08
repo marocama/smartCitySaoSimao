@@ -23,21 +23,14 @@
             <div>
               <label for="sector" class="block text-sm font-medium text-gray-700">Setor</label>
               <select v-model="form.sector" id="sector" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                <option>Alimentação</option>
-                <option>Lazer</option>
-                <option>Compras</option>
-                <option>Saúde</option>
-                <option>Transporte Acessível</option>
-                <option>Imóveis</option>
-                <option>Eventos</option>
+                <option v-for="(item, index) in Object.keys(options)" :key="index">{{ item }}</option>
               </select>
             </div>
             <!-- Categoria -->
             <div>
               <label for="categorie" class="block text-sm font-medium text-gray-700">Categoria</label>
               <select v-model="form.category" id="categorie" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                <option>Restaurante</option>
-                <option>Lanchonete</option>
+                <option v-for="(item, index) in options[form.sector]" :key="index">{{ item }}</option>
               </select>
             </div>
           </div>
@@ -111,6 +104,11 @@ export default {
         city: '',
         state: ''
       }
+    },
+    options: {
+      'Alimentação': ['Restaurante', 'Choperia'],
+      'Lazer': ['Parques'],
+      'Compras': ['Supermercados'],    
     }
   }},
 
