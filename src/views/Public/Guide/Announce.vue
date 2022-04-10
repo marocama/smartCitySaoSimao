@@ -106,9 +106,13 @@ export default {
       }
     },
     options: {
-      'Alimentação': ['Restaurante', 'Choperia'],
-      'Lazer': ['Parques'],
-      'Compras': ['Supermercados'],    
+      'Bebidas e Alimentos': ['Açougues', 'Adegas', 'Água Mineral', 'Água Potável', 'Bares', 'Bolos Caseiros', 'Bolos e Doces', 'Bolos, Pães e Salgados', 'Cafeteria', 'Conveniência', 'Costelarias', 'Docerias', 'Doces e Salgados', 'Doces Mineiros', 'Esfihas', 'Frango Assado', 'Lanches e Salgados', 'Lanchonetes', 'Marmitex', 'Padarias e Confeitarias', 'Pães Doces e Salgados', 'Pastelarias', 'Peixarias', 'Pizzaria', 'Produtos Natuais', 'Queijos e Doces', 'Restaurantes', 'Sorveterias', 'Supermercados, Mercados e Mercearias', 'Suplementos Alimentares', 'Varejão'],
+      'Esportes e Lazer': ['Artigos para Pesca', 'Aulas de Dança', 'Bicicletarias', 'Clubes', 'Escola de Dança', 'Náutica', 'Studio de Pilates'],
+      'Roupas e Acessórios': ['Armarinhos', 'Bolsas', 'Calçados', 'Camisetas', 'Concertos de Roupas', 'Equipamentos de Produção Indivicual', 'Jeans', 'Jóias, Semi Jóias e Bijuterias', 'Lingeries', 'Moda Feminina', 'Moda Masculina', 'Moda Feminina e Masculina', 'Moda Infantil', 'Moda Jovem', 'Relojoarias', 'Uniformes'],
+      'Saúde, Estética e Beleza': ['Acupultura', 'Cabeleireiros', 'Cardiologistas', 'Clínicas de Estética', 'Consultora de Beleza', 'Convênios, Clínicas e Laboratórios', 'Cosméticos e Perfumarias', 'Dentistas', 'Drogarias', 'Exame de Vista', 'Farmácias e Drograrias', 'Fisioteripia', 'Fonoaudiologia', 'Iridologia e Florais', 'Manicure e Pedicure', 'Massagens Terapêuticas', 'Óticas', 'Otorrinolaringologistas', 'Pilares', 'Planos de Saúde', 'Podologia', 'Psicólogos e Psicanalistas', 'Tatuagens',], 
+      'Educação e Cultura': ['Artigos Religiosos', 'Aulas de Dança - Educação', 'Aulas de Idiomas', 'Aulas de Reforço Escolar', 'Aulas Particulares', 'Colégios', 'Cursos', 'Cursos de Idiomas', 'Educação Infantil', 'Escola de Dança', 'Faculdades', 'Notícias', 'Psicopedagogia'], 
+      'Eventos e Serviços': ['Artigos para Festa', 'Artistas', 'Bar Man', 'Brinquedos infláveis', 'Casamentos', 'Chácaras e Sítios', 'Convites', 'Convites e Lembrancias'], 
+      'Outros': ['Supermercados'],     
     }
   }},
 
