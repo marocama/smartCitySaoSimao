@@ -11,8 +11,9 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Início</a>
-              <a href="/guide/eat" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Guia</a>
+              <a href="/guide/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Guia</a>
               <a href="/guide/eat" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Prefeitura</a>
+              <a href="/guide/eat" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Turismo e Lazer</a>
               <a href="/guide/eat" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Transporte Acessível</a>
             </div>
           </div>
