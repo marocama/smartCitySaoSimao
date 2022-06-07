@@ -10,11 +10,11 @@
           <div class="hidden lg:block lg:ml-14">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Início</a>
-              <a href="/guide/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Guia</a>
-              <a href="/townhall" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Prefeitura</a>
-              <a href="/tourism" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Turismo e Lazer</a>
-              <a href="/traspost" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Transporte Acessível</a>
+              <a href="/" class="hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Início</a>
+              <a href="/guide/" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Guia</a>
+              <a href="https://www.saosimao.sp.gov.br/" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Prefeitura</a>
+              <a href="/tourism" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Turismo e Lazer</a>
+              <a href="/transport" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Transporte Acessível</a>
             </div>
           </div>
         </div>
