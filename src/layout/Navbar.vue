@@ -12,6 +12,7 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" class="hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Início</a>
               <a href="/guide/" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Guia</a>
+              <a href="/smartSolutions/" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Soluções Inteligentes</a>
               <a href="https://www.saosimao.sp.gov.br/" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Prefeitura</a>
               <a href="/tourism" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Turismo e Lazer</a>
               <a href="/transport" class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Transporte Acessível</a>
