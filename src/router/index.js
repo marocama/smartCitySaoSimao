@@ -15,6 +15,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "transport" */ '@/views/Public/Transport/Index')
   },
   {
+    path: '/smartSolutions',
+    name: 'Soluções Inteligentes',
+    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Index'),
+  },
+  {
+    path: '/townHall',
+    name: 'Prefeitura',
+    component: () => import(/* webpackChunkName: "townHall" */ '@/views/Public/TownHall/Index'),
+  },
+  {
     path: '/guide',
     name: 'Guia Comercial',
     component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
