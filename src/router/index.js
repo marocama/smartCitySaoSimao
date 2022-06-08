@@ -25,6 +25,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "townHall" */ '@/views/Public/TownHall/Index'),
   },
   {
+    path: '/tourism',
+    name: 'Ponto Turístico',
+    component: () => import(/* webpackChunkName: "tourism" */ '@/views/Public/Tourism/Index'),
+  },
+  {
     path: '/guide',
     name: 'Guia Comercial',
     component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
