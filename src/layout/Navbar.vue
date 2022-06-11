@@ -113,5 +113,9 @@ export default {
     menu: false,
     user: false,
   } }
+
+  // computed: {
+  //   current: () => { return this.$router?.currentRoute.path }
+  // }
 }
 </script>

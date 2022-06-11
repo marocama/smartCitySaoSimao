@@ -49,7 +49,8 @@
             <p class="mt-3 text-justify text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">O projeto Transporte Acessível tem como intuito ajudar pessoas deficientes a se locomoverem com mais facilidade no dia a dia, nossa tecnologia se compromete com o avanço das adaptações de transportes para as comunidades que não tem acesso aos locais específicos que abrangem seu cotidiano.</p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div class="rounded-md shadow">
-                <a class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Agende agora seu Transporte Acessível</a>
+                <button @click="$store.dispatch('modals/open', 'transport')" type="button" class="block w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">Agende agora seu Transporte Acessível</button>
+              <!-- <button @click="$store.dispatch('modals/open', 'login')" class="block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">Entrar</button> -->
               </div>
             </div>
           </div>
@@ -59,17 +60,14 @@
     <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
       <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://gabrielzinho.com.br/wp-content/uploads/2020/09/pexels-marcus-aurelius-4064418-2048x1365.jpg" alt="Trasnpot" />
     </div>
+    <ModalTransport />
   </div>
 </template>
-<!--
-<script setup>
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
-import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
-</script> -->
+<script>
+export default {
+  components: {
+    ModalTransport: () => import('@/components/Modals/Transport'),
+  }
+}
+</script>
