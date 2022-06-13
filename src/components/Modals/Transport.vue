@@ -1,9 +1,11 @@
 <template>
   <modal id="transport" width="25%">
     <!-- Email -->
-    <label for="email" class="block text-sm font-medium text-gray-700">Emapatooil</label>
-    <!-- <Input v-model="form.email" type="email" required :loading="loading" /> -->
+    <label for="name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+    <input v-model="form.name" type="name" required :loading="loading" />
+    <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
     <!-- Senha -->
+    home address
     <label for="password" class="mt-4 block text-sm font-medium text-gray-700">Senha</label>
     <!-- <Input v-model="form.password" type="password" required :loading="loading" /> -->
     <!-- Esqueci minha senha -->
