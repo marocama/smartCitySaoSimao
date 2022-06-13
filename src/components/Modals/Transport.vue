@@ -1,9 +1,15 @@
 <template>
   <modal id="transport" width="25%">
-    <!-- Email -->
-    <label for="name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
-    <input v-model="form.name" type="name" required :loading="loading" />
+    <!-- Nome Completo -->
+    <label for="name" class="block text-sm font-medium text-gray-700"> Nome Completo </label>
+    <div class="mt-1">
+      <input id="name" name="name" type="name" autocomplete="name" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+    </div>
+    <!-- Telefone -->
     <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
+     <div class="mt-1">
+      <input id="phone" name="phone" type="phone" autocomplete="phone" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+    </div>
     <!-- Senha -->
     home address
     <label for="password" class="mt-4 block text-sm font-medium text-gray-700">Senha</label>
@@ -19,3 +25,4 @@
     </div>
   </modal>
 </template>
+
