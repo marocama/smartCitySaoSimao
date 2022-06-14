@@ -21,19 +21,20 @@
       <input id="destinationAddress" name="destinationAddress" type="destinationAddress" autocomplete="destinationAddress" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
     <!--Data-->
-    <label for="date" class="block text-sm font-medium text-gray-700">Data</label>
-     <div class="mt-1">
-      <input id="date" name="date" type="date" autocomplete="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-    </div>
-    <!--Horário-->
-    <label for="time" class="block text-sm font-medium text-gray-700">Horário</label>
-     <div class="mt-1">
-      <input id="time" name="time" type="time" autocomplete="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+    <div class="mt-1 flex grid-cols-1 gap-1">
+        <label for="date" class="block text-sm font-medium text-gray-700">Data</label>
+      <div class="mt-1">
+        <input id="date" name="date" type="date" autocomplete="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+      </div>
+      <label for="time" class="block text-sm font-medium text-gray-700">Horário</label>
+      <div class="mt-1">
+        <input id="time" name="time" type="time" autocomplete="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+      </div>
     </div>
     <!--Acompanhantes-->
     <div class="space-y-8 divide-y divide-gray-200">
       <fieldset class="mt-6">
-        <legend class="contents text-base font-medium text-gray-900">Deseja levar Acompanhantes?</legend>
+        <legend class="contents text-base font-medium text-gray-700">Deseja levar Acompanhantes?</legend>
         <div class="mt-4 space-y-4">
             <div class="flex items-center">
               <input id="yes" name="yes" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
@@ -46,16 +47,17 @@
         </div>
       </fieldset>
     </div>
-
-    <!-- Esqueci minha senha -->
-    <button type="button" class="mt-2 w-full text-right font-medium text-sm text-indigo-600 hover:text-indigo-500">Esqueceu sua senha?</button>
-    <!-- Entrar -->
+    <!--Observações-->
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="about" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Observações</label>
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+          <textarea id="about" name="about" rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md" />
+        </div>
+    </div>
     <!-- <Button @click="login" text="Entrar" type="submit" :loading="loading" /> -->
     <!-- Registrar -->
     <div class="mt-2 w-full text-center space-x-1">
-      <span class="font-medium text-gray-600">Não possui conta?</span>
-      <button @click="$store.dispatch('modals/close', 'transport')" type="button" class="font-medium text-indigo-600">Registre-se</button>
+      <button @click="$stor.dispatch('modals/close', 'transport')" type="button" class="font-medium text-indigo-600">Agendar</button>
     </div>
   </modal>
 </template>
-

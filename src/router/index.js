@@ -40,7 +40,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "announce" */ '@/views/Public/Guide/Announce'),
       },
       {
-        path: 'eat',
+        path: '/eat',
         name: 'Bebidas e Alimentos',
         component: () => import(/* webpackChunkName: "eat" */ '@/views/Public/Guide/Eat/Index'),
       },
