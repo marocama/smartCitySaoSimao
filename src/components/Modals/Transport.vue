@@ -21,7 +21,7 @@
       <input id="destinationAddress" name="destinationAddress" type="destinationAddress" autocomplete="destinationAddress" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
     <!--Data-->
-    <div class="mt-1 flex grid-cols-1 gap-1">
+    <div class="mt-1 flex grid-cols-1 gap-1"><br>
         <label for="date" class="block text-sm font-medium text-gray-700">Data</label>
       <div class="mt-1">
         <input id="date" name="date" type="date" autocomplete="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
@@ -48,11 +48,35 @@
       </fieldset>
     </div>
     <!--Observações-->
-    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-      <label for="about" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Observações</label>
-        <div class="mt-1 sm:mt-0 sm:col-span-2">
-          <textarea id="about" name="about" rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md" />
+    <div class="sm:col-span-2">
+      <label for="message" class="block text-sm font-medium text-gray-700">Observações</label>
+        <div class="mt-1">
+          <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" />
         </div>
+    </div>
+    <div class="sm:col-span-2">
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <Switch v-model="agreed" :class="[agreed ? 'bg-indigo-600' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500']">
+            <span class="sr-only">Agree to policies</span>
+            <span aria-hidden="true" :class="[agreed ? 'translate-x-5' : 'translate-x-0', 'inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200']" />
+          </Switch>
+        </div>
+        <div class="ml-3">
+          <p class="text-base text-gray-500">
+            By selecting this, you agree to the
+            {{ ' ' }}
+            <a href="#" class="font-medium text-gray-700 underline">Privacy Policy</a>
+            {{ ' ' }}
+            and
+            {{ ' ' }}
+            <a href="#" class="font-medium text-gray-700 underline">Cookie Policy</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="sm:col-span-2">
+      <button @click="$stor.dispatch('modals/close', 'transport')" type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Agendar</button>
     </div>
     <!-- <Button @click="login" text="Entrar" type="submit" :loading="loading" /> -->
     <!-- Registrar -->
