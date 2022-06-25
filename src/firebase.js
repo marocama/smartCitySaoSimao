@@ -28,6 +28,7 @@ const GoogleProvider = new firebase.auth.GoogleAuthProvider()
 const GuideColl = db.collection('Guide')
 const UsersColl = db.collection('Users')
 
+
 export {
   db, 
   auth,

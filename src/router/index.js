@@ -10,6 +10,26 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ '@/views/Public/Home')
   },
   {
+    path: '/transport',
+    name: 'Transporte Acessível',
+    component: () => import(/* webpackChunkName: "transport" */ '@/views/Public/Transport/Index')
+  },
+  {
+    path: '/smartSolutions',
+    name: 'Soluções Inteligentes',
+    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Index'),
+  },
+  {
+    path: '/townHall',
+    name: 'Prefeitura',
+    component: () => import(/* webpackChunkName: "townHall" */ '@/views/Public/TownHall/Index'),
+  },
+  {
+    path: '/tourism',
+    name: 'Ponto Turístico',
+    component: () => import(/* webpackChunkName: "tourism" */ '@/views/Public/Tourism/Index'),
+  },
+  {
     path: '/guide',
     name: 'Guia Comercial',
     component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
@@ -20,9 +40,39 @@ const routes = [
         component: () => import(/* webpackChunkName: "announce" */ '@/views/Public/Guide/Announce'),
       },
       {
-        path: 'eat',
-        name: 'Onde Comer',
+        path: '/eat',
+        name: 'Bebidas e Alimentos',
         component: () => import(/* webpackChunkName: "eat" */ '@/views/Public/Guide/Eat/Index'),
+      },
+      {
+        path: '/sport',
+        name: 'Esportes',
+        component: () => import(/* webpackChunkName: "sport" */ '@/views/Public/Guide/Sport/Index'),
+      },
+      {
+        path: '/accessories',
+        name: 'Roupas e Acessórios',
+        component: () => import(/* webpackChunkName: "accessories" */ '@/views/Public/Guide/Accessories/Index'),
+      },
+      {
+        path: '/cheers',
+        name: 'Saúde, Estética e Beleza',
+        component: () => import(/* webpackChunkName: "cheers" */ '@/views/Public/Guide/Cheers/Index'),
+      },
+      {
+        path: '/education',
+        name: 'Educação e Cultura',
+        component: () => import(/* webpackChunkName: "education" */ '@/views/Public/Guide/Education/Index'),
+      },
+      {
+        path: '/events',
+        name: 'Eventos e Serviços',
+        component: () => import(/* webpackChunkName: "events" */ '@/views/Public/Guide/Events/Index'),
+      },
+      {
+        path: '/others',
+        name: 'Outros',
+        component: () => import(/* webpackChunkName: "others" */ '@/views/Public/Guide/Others/Index'),
       },
       {
         path: 'company/:id',

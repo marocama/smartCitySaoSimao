@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 export default {
   components: { 
     Layout: () => import('@/layout/Default'),
