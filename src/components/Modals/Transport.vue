@@ -1,69 +1,67 @@
 <template>
-  <modal id="transport" width="25%">
-    <!-- Nome Completo -->
-    <label for="name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
-    <div class="mt-1">
-      <input id="name" name="name" type="name" autocomplete="name" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-    </div>
-    <!-- Telefone -->
-    <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
-     <div class="mt-1">
-      <input id="phone" name="phone" type="phone" autocomplete="phone" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-    </div>
-    <!-- Endereço Residencial -->
-    <label for="homeAddress" class="block text-sm font-medium text-gray-700">Endereço Residencial</label>
-     <div class="mt-1">
-      <input id="homeAddress" name="homeAddress" type="homeAddress" autocomplete="homeAddress" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-    </div>
-    <!-- Endereço Destino -->
-    <label for="destinationAddress" class="block text-sm font-medium text-gray-700">Endereço de Destino</label>
-     <div class="mt-1">
-      <input id="destinationAddress" name="destinationAddress" type="destinationAddress" autocomplete="destinationAddress" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-    </div>
+  <modal id="transport" width="40%">
+    <Input v-model="form.name" name="name" label="Nome Completo" required :loading="loading" />
+    <Input v-model="form.phone" name="phone" label="Telefone" required class="mt-1" :loading="loading" />
+    <Input v-model="form.homeAddress" name="homeAddress" label="Endereço Residencial" required class="mt-1" :loading="loading" />
+    <Input v-model="form.destinationAddress" name="destinationAddress" label="Endereço de Destino" required class="mt-1" :loading="loading" />
     <!--Data-->
-    <div class="mt-1 flex grid-cols-1 gap-1"><br>
-        <label for="date" class="block text-sm font-medium text-gray-700">Data</label>
-      <div class="mt-1">
-        <input id="date" name="date" type="date" autocomplete="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-      </div>
-      <label for="time" class="block text-sm font-medium text-gray-700">Horário</label>
-      <div class="mt-1">
-        <input id="time" name="time" type="time" autocomplete="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-      </div>
+    <div class="mt-1 grid grid-cols-2 gap-1">
+      <Input v-model="form.date" name="date" label="Data" type="date" required :loading="loading" />
+      <Input v-model="form.time" name="time" label="Horário" type="time" required :loading="loading" />
     </div>
     <!--Acompanhantes-->
-    <div class="space-y-8 divide-y divide-gray-200">
-      <fieldset class="mt-6">
-        <legend class="contents text-base font-medium text-gray-700">Deseja levar Acompanhantes?</legend>
-        <div class="mt-4 space-y-4">
-            <div class="flex items-center">
-              <input id="yes" name="yes" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
-              <label for="yes" class="ml-3 block text-sm font-medium text-gray-700"> Sim </label>
-            </div>
-          <div class="flex items-center">
-            <input id="no" name="no" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
-            <label for="no" class="ml-3 block text-sm font-medium text-gray-700"> Não </label>
-          </div>
-        </div>
-      </fieldset>
+    <div class="mt-2 flex items-center justify-between">
+      <span class="flex-grow flex flex-col">
+        <span class="text-sm font-medium text-gray-900" id="availability-label">Deseja levar Acompanhantes?</span>
+        <span class="text-sm text-gray-500" id="availability-description">Marque essa opção caso você não vá viajar sozinho.</span>
+      </span>
+      <button @click="form.companion = !form.companion" type="button" :class="form.companion ? 'bg-indigo-600' : 'bg-gray-200'" class="relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" role="switch" aria-checked="false" aria-labelledby="availability-label" aria-describedby="availability-description">
+        <span aria-hidden="true" :class="form.companion ? 'translate-x-5' : 'translate-x-0'" class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
+      </button>
     </div>
     <!--Observações-->
-    <div class="sm:col-span-2">
-      <label for="message" class="block text-sm font-medium text-gray-700">Observações</label>
-        <div class="mt-1">
-          <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" />
-        </div>
-    </div>
-    <div class="sm:col-span-2">
-      <div class="flex items-start">
-        <div class="flex-shrink-0">
-        </div>
-        <div class="ml-3">
-        </div>
-      </div>
-    </div>
-    <div class="sm:col-span-2">
-      <button @click="$stor.dispatch('modals/close', 'transport')" type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Agendar</button>
-    </div>
+    <Input v-model="form.observations" name="observations" label="Observações" :rows="4" class="mt-1.5" :loading="loading" />
+    <Button @click="save" type="submit" text="Agendar" :loading="loading" />
   </modal>
 </template>
+
+<script>
+import { TripsColl } from '@/firebase'
+
+export default {
+  components: {
+    Input: () => import('@/components/Inputs/Default'),
+    Button: () => import('@/components/Buttons/Default'),
+  },
+
+  data() { return {
+    form: {
+      name: '',
+      phone: '',
+      homeAddress: '',
+      destinationAddress: '',
+      date: '',
+      time: '',
+      message: '',
+      companion: false,
+    },
+    loading: false,
+  } },
+
+  methods: {
+    async save() {
+      this.loading = true
+      await TripsColl.add(this.form)
+      .then(() => {
+        this.$store.dispatch('modals/close', 'transport')
+        this.$toast.success('Transporte agendado com sucesso')
+        this.form.name = '', this.form.phone = '', this.form.homeAddress = '', this.form.destinationAddress = '', this.form.date = '', this.form.time = '', this.form.message = ''
+      })
+      .catch(() => {
+        this.$toast.error('Ocorreu um erro, tente novamente')
+      })
+      this.loading = false
+    }
+  }
+}
+</script>
