@@ -27,7 +27,6 @@
       </div>
     </div>
     <router-view />
-
   </main>
 </template>
 
