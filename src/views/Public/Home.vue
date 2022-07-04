@@ -2,21 +2,12 @@
   <div class="bg-white">
     <div class="relative overflow-hidden">
       <header class="relative">
-        <!--
-          Mobile menu, show/hide based on menu open state.
-
-          Entering: "duration-150 ease-out"
-            From: "opacity-0 scale-95"
-            To: "opacity-100 scale-100"
-          Leaving: "duration-100 ease-in"
-            From: "opacity-100 scale-100"
-            To: "opacity-0 scale-95"
-        -->
+      <img src="https://images.pexels.com/photos/139207/pexels-photo-139207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
         <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
           <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="px-5 pt-4 flex items-center justify-between">
               <div>
-                <img class="h-12 w-" src="https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg" alt="">
+                <img class="h-12 w-" src="" alt="">
               </div>
               <div class="-mr-2">
                 <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600">
@@ -49,7 +40,7 @@
         </div>
       </header>
       <main>
-        <div class="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+        <div class="pt-10 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
           <div class="mx-auto max-w-7xl lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8">
               <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
@@ -63,7 +54,7 @@
                     </svg>
                   </a> -->
                   
-                  <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                  <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                     <span class="block">Smart São Simão</span>
                     <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">ship web apps</span>
                   </h1>
@@ -83,12 +74,6 @@
                       <!-- <p class="mt-3 text-sm text-gray-300 sm:mt-4">Start your free 14-day trial, no credit card necessary. By providing your email, you agree to our <a href="#" class="font-medium text-white">terms of service</a>.</p> -->
                     </form>
                   </div>
-                </div>
-              </div>
-              <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-                <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-                  <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
-                  <img class="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg" alt="">
                 </div>
               </div>
             </div>

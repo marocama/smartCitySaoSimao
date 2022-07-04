@@ -5,10 +5,12 @@
     <Input v-model="form.homeAddress" name="homeAddress" label="Endereço Residencial" required class="mt-1" :loading="loading" />
     <Input v-model="form.destinationAddress" name="destinationAddress" label="Endereço de Destino" required class="mt-1" :loading="loading" />
     <!--Data-->
-    <Input v-model="form.date" name="date" label="Data" type="date" required :loading="loading" />
-    <Input v-model="form.time" name="time" label="Horário" type="time" required :loading="loading" />
+    <div class="mt-1 grid grid-cols-2 gap-1">
+      <Input v-model="form.date" name="date" label="Data" type="date" required :loading="loading" />
+      <Input v-model="form.time" name="time" label="Horário" type="time" required :loading="loading" />
+    </div>
     <!--Acompanhantes-->
-      <div class="mt-2 flex items-center justify-between">
+    <div class="mt-2 flex items-center justify-between">
       <span class="flex-grow flex flex-col">
         <span class="text-sm font-medium text-gray-900" id="availability-label">Deseja levar Acompanhantes?</span>
         <span class="text-sm text-gray-500" id="availability-description">Marque essa opção caso você não vá viajar sozinho.</span>
@@ -19,13 +21,13 @@
     </div>
     <!--Observações-->
     <Input v-model="form.observations" name="observations" label="Observações" :rows="4" class="mt-1.5" :loading="loading" />
-    <Button @click="save" type="submit" text="Agendar" :loading="loading" />
+    <Button @click="save" type="submit" text="Agendar" :loading="loading"></Button>
   </modal>
 </template>
 
-
 <script>
 import { TripsColl } from '@/firebase'
+
 export default {
   components: {
     Input: () => import('@/components/Inputs/Default'),
@@ -44,6 +46,7 @@ export default {
     },
     loading: false,
   } },
+
   methods: {
     async save() {
       this.loading = true
