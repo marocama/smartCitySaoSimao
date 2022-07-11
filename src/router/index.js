@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Início',
     component: () => import(/* webpackChunkName: "home" */ '@/views/Public/Home')
   },
   {
@@ -16,12 +16,12 @@ const routes = [
   },
   {
     path: '/smartSolutions',
-    name: 'Soluções Inteligentes',
+    name: 'Soluções',
     component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Index'),
   },
   {
     path: '/townHall',
-    name: 'Prefeitura',
+    name: 'Município',
     component: () => import(/* webpackChunkName: "townHall" */ '@/views/Public/TownHall/Index'),
   },
   {
@@ -31,7 +31,7 @@ const routes = [
   },
   {
     path: '/guide',
-    name: 'Guia Comercial',
+    name: 'Guia',
     component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
     children: [
       {
