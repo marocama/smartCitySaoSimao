@@ -36,4 +36,3 @@ export default {
     css: { type: String, default: 'mt-4 px-4 sm:px-6' },
   }
 }
-</script> 

@@ -1,6 +1,6 @@
 <template>
   <main class="mt-2 mx-20">
-    
+    asdsadas
     <div class="mb-5">
       <div class="sm:hidden">
         <label for="tabs" class="sr-only">Select a tab</label>
@@ -17,7 +17,8 @@
       </div>
     </div>
     <router-view />
-     <button @click="menu = true" type="button" class="p-2 fixed right-7 w-min rounded-full shadow-sm bg-purple-600 text-white focus:outline-none" :class="$store.state.mobile ? 'bottom-20' : 'bottom-4'">
+    <!-- Floating Button -->
+    <button @click="menu = true" type="button" class="p-2 fixed right-7 w-min rounded-full shadow-sm bg-purple-600 text-white focus:outline-none" :class="$store.state.mobile ? 'bottom-20' : 'bottom-4'">
       <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" /></svg>
     </button>
     <SliderOver v-model="menu" :size="$store.state.mobile ? 'sm' : 'xs'" title="Categoria" subtitle="Filtre os resultados da sua busca.">
@@ -33,7 +34,6 @@
 
 <script>
 export default {
-
   components: {
     SliderOver: () => import('@/components/SlideOver/Default'),
   },
