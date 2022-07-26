@@ -255,6 +255,7 @@
         </div>
       </div>
     </div>
+    <!-- Testimonial/stats section -->
     <div class="relative mt-20">
       <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
         <div class="relative sm:py-16 lg:py-0">
@@ -295,20 +296,46 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
-      <!-- Content area -->
-      <div class="pt-12 sm:pt-16 lg:pt-20">
-        <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">On a mission to empower teams</h2>
-        <div class="mt-6 text-gray-500 space-y-6">
-          <p class="text-lg">Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi. Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames senectus vitae.</p>
-          <p class="text-base leading-7">Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna. Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna.</p>
-          <p class="text-base leading-7">Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies. Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim fermentum lacus in. Viverra.</p>
+
+        <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
+          <!-- Content area -->
+          <div class="pt-12 sm:pt-16 lg:pt-20">
+            <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">On a mission to empower teams</h2>
+            <div class="mt-6 text-gray-500 space-y-6">
+              <p class="text-lg">Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi. Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames senectus vitae.</p>
+              <p class="text-base leading-7">Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna. Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna.</p>
+              <p class="text-base leading-7">Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies. Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim fermentum lacus in. Viverra.</p>
+            </div>
+          </div>
+
+          <!-- Stats section -->
+          <div class="mt-10">
+            <dl class="grid grid-cols-2 gap-x-4 gap-y-8">
+              <div class="border-t-2 border-gray-100 pt-6">
+                <dt class="text-base font-medium text-gray-500">Founded</dt>
+                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">2021</dd>
+              </div>
+
+              <div class="border-t-2 border-gray-100 pt-6">
+                <dt class="text-base font-medium text-gray-500">Employees</dt>
+                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">5</dd>
+              </div>
+
+              <div class="border-t-2 border-gray-100 pt-6">
+                <dt class="text-base font-medium text-gray-500">Beta Users</dt>
+                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">521</dd>
+              </div>
+
+              <div class="border-t-2 border-gray-100 pt-6">
+                <dt class="text-base font-medium text-gray-500">Raised</dt>
+                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">$25M</dd>
+              </div>
+            </dl>
+            
+          </div>
         </div>
       </div>
     </div>
-
     <!-- Stats section -->
     <div class="relative bg-gray-900">
       <div class="h-80 absolute inset-x-0 bottom-0 xl:top-0 xl:h-full">
