@@ -4,6 +4,7 @@
     <Register />
     <!-- Aplicação -->
     <div class="wrapper">
+      
       <!-- Navbar -->
       <nav class="py-1 px-4 flex justify-between items-center bg-white border-b-2 shadow-lg">
         <!-- Logo --> 

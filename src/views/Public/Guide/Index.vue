@@ -1,6 +1,5 @@
 <template>
   <main class="mt-2 mx-20">
-    asdsadas
     <div class="mb-5">
       <div class="sm:hidden">
         <label for="tabs" class="sr-only">Select a tab</label>
