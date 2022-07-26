@@ -311,25 +311,7 @@
           <!-- Stats section -->
           <div class="mt-10">
             <dl class="grid grid-cols-2 gap-x-4 gap-y-8">
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Founded</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">2021</dd>
-              </div>
-
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Employees</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">5</dd>
-              </div>
-
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Beta Users</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">521</dd>
-              </div>
-
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Raised</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">$25M</dd>
-              </div>
+              
             </dl>
             
           </div>
