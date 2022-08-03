@@ -1,12 +1,11 @@
 <template>
-  <div id="app" class="h-screen">
+  <div id="app" class="h-screen bg-gray-100">
     <Login />
     <Register />
     <!-- Aplicação -->
     <div class="wrapper">
-      
       <!-- Navbar -->
-      <nav class="py-1 px-4 flex justify-between items-center bg-white border-b-2 shadow-lg">
+      <nav class="py-5 px-10 flex justify-between items-center bg-transparent">
         <!-- Logo --> 
         <router-link to="/" class="flex-shrink-0">
           <img :src="require('@/assets/logo.svg')" class="py-0.5 w-auto h-10" alt="São Simão" />
@@ -25,8 +24,9 @@
       </nav>
       <!-- Conteúdo -->
       <main class="content">
-        <div ref="main" class="py-3 main scrollbar">
-          <router-view class="h-full container" />
+        <div class="py-3 main scrollbar">
+          <!-- <router-view class="h-full container" /> -->
+          <router-view class="h-full" />
         </div>
       </main>
       <!-- Bottom Navigation -->

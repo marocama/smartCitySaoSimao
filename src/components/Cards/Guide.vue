@@ -1,7 +1,7 @@
 <template>
-  <article class="bg-white rounded-lg shadow-md" @mouseenter="arrows = true" @mouseleave="arrows = false">
+  <article class="bg-white border border-gray-200 rounded-lg shadow-md" @mouseenter="arrows = true" @mouseleave="arrows = false">
     <!-- Carrossel -->
-    <div class="swiperCarousel swiper-button-hidden relative rounded-b-xl overflow-hidden text-white z-0">
+    <div class="swiperCarousel swiper-button-hidden relative overflow-hidden text-white z-0">
       <div class="swiper-wrapper">
         <div v-for="(item, index) in data.Images" :key="index" class="swiper-slide flex justify-center">
           <img class="h-40 w-full object-cover rounded-t-lg swiper-lazy" :src="item" />

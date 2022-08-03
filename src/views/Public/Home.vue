@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
+  <div class="py-16 sm:pt-20 sm:pb-24 lg:pt-24">
     <div class="relative overflow-hidden">
       <header class="relative">
         <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
@@ -39,7 +39,7 @@
         </div>
       </header>
       <main>
-        <div class="pt-10 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden  from-purple-800 to-indigo-700">
+        <div class="pt-10 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden bg-gradient-to-b from-gray-100 to-purple-800">
           <div class="mx-auto max-w-7xl lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8">
               <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
@@ -79,7 +79,7 @@
           </div>
         </div>
         <!-- Gradient Feature Section -->
-        <div class="w-full bg-gradient-to-r from-purple-800 to-indigo-700">
+        <div class="w-full bg-gradient-to-b from-purple-800 to-indigo-700">
           <div class="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white tracking-tight">Inbox support built for efficiency</h2>
             <p class="mt-4 max-w-3xl text-lg text-purple-200">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis. Blandit aliquam sit nisl euismod mattis in.</p>

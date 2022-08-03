@@ -4,7 +4,7 @@
       <div v-if="value" @click="$emit('input', false)" class="fixed inset-0 bg-black bg-opacity-60 transition-opacity z-50" aria-hidden="true" />
     </transition>
     <transition :enter-class="`${side == 'LEFT' ? '-' : ''}translate-x-full`" enter-active-class="transform transition ease-in-out duration-500" enter-to-class="translate-x-0" leave-class="translate-x-0" leave-active-class="transform transition ease-in-out duration-500" :leave-to-class="`${side == 'LEFT' ? '-' : ''}translate-x-full`">
-      <div v-if="value" class="fixed inset-y-0 right-0 w-screen h-full flex flex-col bg-white z-50" :class="`max-w-${size} ${side === 'LEFT' ? 'left-0' : 'right-0'}`">
+      <div v-if="value" class="fixed inset-y-0 right-0 w-screen h-full flex flex-col bg-white z-50 select-none" :class="`max-w-${size} ${side === 'LEFT' ? 'left-0' : 'right-0'}`">
         <!-- Header padrão -->
         <div v-if="!hiddenheader" class="py-3 px-4 sm:px-6 bg-gray-50 border-b-2 border-gray-100">
           <div class="flex justify-between">
@@ -36,3 +36,4 @@ export default {
     css: { type: String, default: 'mt-4 px-4 sm:px-6' },
   }
 }
+</script>
