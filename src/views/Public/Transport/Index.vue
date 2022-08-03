@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://gabrielzinho.com.br/wp-content/uploads/2020/09/pexels-marcus-aurelius-4064418-2048x1365.jpg" alt="Trasnpot" />
+      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.ctfassets.net/ucp6tw9r5u7d/3sHQouLu5cT6jzkNxA6zeI/0a2190a0c009787ac64fa66d4e4bd553/Imagens_Prancheta_1_c__pia_29.png" alt="Trasnpot" />
     </div>
     <ModalTransport />
   </div>
