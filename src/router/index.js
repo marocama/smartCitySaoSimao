@@ -12,12 +12,22 @@ const routes = [
   {
     path: '/transport',
     name: 'Transporte Acessível',
-    component: () => import(/* webpackChunkName: "transport" */ '@/views/Public/Transport/Index')
+    component: () => import(/* webpackChunkName: "transport" */ '@/views/Public/SmartSolutions/Transport/Index')
   },
   {
     path: '/smartSolutions',
     name: 'Soluções',
     component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Index'),
+  },
+  {
+    path: '/rides',
+    name: 'Carona Solidária',
+    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Ride/Index'),
+  },
+  {
+    path: '/organic',
+    name: 'Produtos Orgânicos',
+    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/OrganicAds/Index'),
   },
   {
     path: '/townHall',

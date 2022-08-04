@@ -2,7 +2,7 @@
 <template>
   <div class="relative bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto">
-      <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+      <div class="relative z-10 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
         <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <polygon points="50,0 100,0 50,100 0,100" />
         </svg>
@@ -10,20 +10,6 @@
          <Popover>
           <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
             <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-              <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                <!-- <div class="flex items-center justify-between w-full md:w-auto">
-                  <a href="#">
-                    <span class="sr-only">Workflow</span>
-                    <img alt="Workflow" class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" />
-                  </a>
-                  <div class="-mr-2 flex items-center md:hidden">
-                    <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                      <span class="sr-only">Open main menu</span>
-                      <MenuIcon class="h-6 w-6" aria-hidden="true" />
-                    </PopoverButton>
-                  </div>
-                </div> -->
-              </div>
               <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="font-medium text-gray-500 hover:text-gray-900">{{ item.name }}</a>
                 <!-- <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a> -->
@@ -50,7 +36,6 @@
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div class="rounded-md shadow">
                 <button @click="$store.dispatch('modals/open', 'transport')" type="button" class="block w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">Agende agora seu Transporte Acessível</button>
-              <!-- <button @click="$store.dispatch('modals/open', 'login')" class="block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">Entrar</button> -->
               </div>
             </div>
           </div>
@@ -58,7 +43,7 @@
       </div>
     </div>
     <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.ctfassets.net/ucp6tw9r5u7d/3sHQouLu5cT6jzkNxA6zeI/0a2190a0c009787ac64fa66d4e4bd553/Imagens_Prancheta_1_c__pia_29.png" alt="Trasnpot" />
+      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.pexels.com/photos/8524619/pexels-photo-8524619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Trasnpot" />
     </div>
     <ModalTransport />
   </div>
