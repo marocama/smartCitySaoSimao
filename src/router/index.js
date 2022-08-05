@@ -30,14 +30,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/OrganicAds/Index'),
   },
   {
+    path: '/trash',
+    name: 'Resíduos Sólidos',
+    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Trash/Index'),
+  },
+  {
     path: '/townHall',
     name: 'Município',
     component: () => import(/* webpackChunkName: "townHall" */ '@/views/Public/TownHall/Index'),
-  },
-  {
-    path: '/tourism',
-    name: 'Ponto Turístico',
-    component: () => import(/* webpackChunkName: "tourism" */ '@/views/Public/Tourism/Index'),
   },
   {
     path: '/guide',
