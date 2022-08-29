@@ -31,11 +31,11 @@
             <div class="text-justify max-w-prose mx-auto lg:max-w-none">
               <p class="text-lg text-gray-500">O vale da Saúde. Possui uma identidade única no cenário regional, estadual e nacional e esta imagem é comprovada por fatos e documentos históricos como o “Berço da Proclamação da República” e “Terra de Marcelo Grassmann”.</p>
             </div>
-            <div class="mt-5 prose prose-indigo text-justify text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">  
+            <div class="mt-8 prose prose-indigo text-justify text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">  
               <div class="lg:mt-5">
                 <p class="text-lg text-gray-500">Com uma área de 617.252 Km² e uma população de 15.446 habitantes (estimativa do IBGE 2021), São Simão esta localizada à nordeste do Estado de São Paulo. Há 282 Km de distância da capital, encravada entre morros possui vastas e belas paisagens naturais assim como uma longa e bela história que se confunde com a do estado e a da própria nação.</p>
               </div>
-              <div class="lg:mt-5">
+              <div class="lg:mt-8">
                 <p class="text-lg text-gray-500">Se destaca pela qualidade de vida, pela cultura e paisagens naturais, na indústria a produção de agua, argila branca, areia, jeans, poliestireno e moveis de escritório. Na agricultura a cana de açúcar e o reflorestamento para celulose e agricultura de subsistência.</p>
               </div>
             </div>
@@ -73,7 +73,9 @@
             <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Turismo</span>
             <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">O Vale da Saúde</span>
           </h1>
-          <p class="mt-8 text-xl text-center text-gray-500 leading-8">Clima privilegiado em virtude das serras que a cercam. Água potável e cristalina é encontrada em abundância, o que a faz ter potencial para estância hidromineral, climática e/ou turística.</p>
+          <p class="mt-8 text-xl text-justify text-gray-500 leading-8">Clima privilegiado em virtude das serras que a cercam. Água potável e cristalina é encontrada em abundância, o que a faz ter potencial para estância hidromineral, climática e/ou turística.</p>
+          <p class="mt-8 text-xl text-justify text-gray-500 leading-8">Nossa missão é fomentar o desenvolvimento do turismo local de forma participativa, por meio de pesquisas, projetos, programas, eventos e gerenciamento dos vários segmentos da atividade turística, sempre aplicados de forma sustentável.</p>
+          <p class="mt-8 text-xl text-justify text-gray-500 leading-8">Os valores a respeito do turista é nosso comprometimento, cooperação, criatividade, integração, excelência, respeito ao meio ambiente e a preservação das identidades culturais, ética e transparência.</p>
         </div>
       </div>
     </div>
