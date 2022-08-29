@@ -26,6 +26,24 @@
                         </div>
                     </figure>
                     </div>
+                    <popover>
+                        <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+                            <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+                                <a v-for="item in navigation" :key="item.name" :href="item.href" class="font-medium text-gray-500 hover:text-gray-900">{{ item.name }}</a>
+                                <!-- <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a> -->
+                            </div>
+                        </nav>
+                        <transition enter-active-class="duration-150 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+                            <PopoverPanel focus class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+                            <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                <div class="px-5 pt-4 flex items-center justify-between"></div>
+                                <div class="px-2 pt-2 pb-3 space-y-1">
+                                <a v-for="item in navigation" :key="item.name" :href="item.href" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
+                                </div>
+                            </div>
+                            </PopoverPanel>
+                        </transition> 
+                    </popover>
                 </div>
                 <div class="mt-8 lg:mt-0">
                     <div class="text-justify max-w-prose mx-auto lg:max-w-none">
@@ -40,7 +58,7 @@
                     </div>
                     </div>
                     <div class="mt-8 inline-flex rounded-md shadow">
-                    <button href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Anuncie seu Produto </button>
+                    <button @click="$store.dispatch('modals/open', 'organic')" type="button"  class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Anuncie seu Produto </button>
                     </div>
                 </div>
                 </div>
@@ -48,3 +66,12 @@
         </div>
     </main> 
 </template>     
+
+<script>
+    export default {
+      components: {
+        ModalOrganic: () => import('@/components/Modals/Organic'),
+      }
+    }
+    </script>
+    
