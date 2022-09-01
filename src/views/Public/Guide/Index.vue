@@ -1,17 +1,17 @@
 <template>
   <main class="mt-2 mx-20">
     <!-- Header -->
-    <section class="mb-5 p-4 sm:px-6 flex justify-between items-center bg-white border border-gray-200 shadow-md rounded-lg">
+    <header class="mb-5 p-4 sm:px-6 flex justify-between items-center bg-white border border-gray-200 shadow-md rounded-lg">
       <div>
         <h3 class="text-gray-600 text-lg font-medium">{{ selected || 'Guia Comercial' }}</h3>
         <p class="text-sm text-gray-500">Exibindo {{ items.length }} resultados</p>
       </div>
       <div class="inline-flex justify-start space-x-3">
-        <Button href="" text="Anunciar"></button>
+        <router-link to="/guide/announce" class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Anunciar</router-link>
         <button type="button" class="p-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
         <button type="button" class="p-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
       </div>
-    </section>
+    </header>
     <!-- Conteúdo -->
     <section class="grid grid-cols-4 gap-6">
       <Card v-for="(item, index) in items" :key="index" :data="item" />
@@ -37,7 +37,6 @@ import { GuideColl } from '@/firebase'
 export default {
   components: {
     Card: () => import('@/components/Cards/Guide'),
-    Button: () => import('@/components/Buttons/Default'),
     SliderOver: () => import('@/components/SlideOver/Default'),
   },
 
@@ -53,7 +52,7 @@ export default {
       { label: 'Educação e Cultura', icon: `<path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd" fill="currentColor" />` },
       { label: 'Eventos e Serviços', icon: `<path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd" fill="currentColor" />`},
       { label: 'Outros', icon: `<path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" fill="currentColor" />`},
-    ]
+    ],
   } },
 
   mounted() {

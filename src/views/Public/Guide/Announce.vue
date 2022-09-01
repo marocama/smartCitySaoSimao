@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="container">
     <form @submit.prevent="announce" class="mb-5 p-5 bg-white border border-gray-200 space-y-8 divide-y divide-gray-200 rounded-lg shadow-md">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>
@@ -44,7 +44,7 @@
             <div class="col-span-2">
               <label for="zipcode" class="block text-sm font-medium text-gray-700">CEP</label>
               <div class="mt-1">
-                <input v-model="form.address.zipcode" type="text" id="zipcode" autocomplete="off" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                <input v-model="form.address.zipcode" type="text" id="zipcode" autocomplete="off" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" @change="getAddress">
               </div>
             </div>
             <div class="col-span-3">
@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { GuideColl } from '@/firebase'
 
 export default {
@@ -138,6 +139,17 @@ export default {
       .catch(() => {
         this.$toast.error('Ocorreu um erro, tente novamente')
       })
+    },
+
+    async getAddress() {
+      await axios.get(`https://brasilapi.com.br/api/cep/v2/${this.form.address.zipcode}`)
+      .then(result => {
+        this.form.address.city = result.data.city || ''
+        this.form.address.state = result.data.state || ''
+        this.form.address.street = result.data.street || ''
+        this.form.address.neighborhood = result.data.neighborhood || ''
+      })
+      .catch(() => {})
     }
   }
 }

@@ -43,53 +43,11 @@ const routes = [
     path: '/guide',
     name: 'Guia',
     component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
-    children: [
-      {
-        path: 'announce',
-        name: 'Anunciar',
-        component: () => import(/* webpackChunkName: "announce" */ '@/views/Public/Guide/Announce'),
-      },
-      {
-        path: '/eat',
-        name: 'Bebidas e Alimentos',
-        component: () => import(/* webpackChunkName: "eat" */ '@/views/Public/Guide/Eat/Index'),
-      },
-      {
-        path: '/sport',
-        name: 'Esportes',
-        component: () => import(/* webpackChunkName: "sport" */ '@/views/Public/Guide/Sport/Index'),
-      },
-      {
-        path: '/accessories',
-        name: 'Roupas e Acessórios',
-        component: () => import(/* webpackChunkName: "accessories" */ '@/views/Public/Guide/Accessories/Index'),
-      },
-      {
-        path: '/cheers',
-        name: 'Saúde, Estética e Beleza',
-        component: () => import(/* webpackChunkName: "cheers" */ '@/views/Public/Guide/Cheers/Index'),
-      },
-      {
-        path: '/education',
-        name: 'Educação e Cultura',
-        component: () => import(/* webpackChunkName: "education" */ '@/views/Public/Guide/Education/Index'),
-      },
-      {
-        path: '/events',
-        name: 'Eventos e Serviços',
-        component: () => import(/* webpackChunkName: "events" */ '@/views/Public/Guide/Events/Index'),
-      },
-      {
-        path: '/others',
-        name: 'Outros',
-        component: () => import(/* webpackChunkName: "others" */ '@/views/Public/Guide/Others/Index'),
-      },
-      {
-        path: 'company/:id',
-        name: 'Comércio',
-        component: () => import(/* webpackChunkName: "company" */ '@/views/Public/Guide/Company/Index'),
-      }
-    ] 
+  },
+  {
+    path: '/guide/announce',
+    name: 'Anunciar - Guia',
+    component: () => import(/* webpackChunkName: "announce-guide" */ '@/views/Public/Guide/Announce'),
   },
   {
     path: '/profile',
