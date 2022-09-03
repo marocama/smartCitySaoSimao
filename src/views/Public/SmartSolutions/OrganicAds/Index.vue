@@ -58,7 +58,9 @@
                     </div>
                     </div>
                     <div class="mt-8 inline-flex rounded-md shadow">
-                    <button @click="$store.dispatch('modals/open', 'organic')" type="button"  class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Anuncie seu Produto </button>
+                    <button @click="$store.dispatch('modals/open', 'organic')" type="button"  class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Publicar Anúncio</button>
+                    <button @click="$store.dispatch('modals/open', 'organic')" type="button"  class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Filtrar Resultados</button>
+                    <button @click="$store.dispatch('modals/open', 'organic')" type="button"  class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Ajuda</button>
                     </div>
                 </div>
                 </div>
