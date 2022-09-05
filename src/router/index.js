@@ -5,6 +5,23 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/auth',
+    name: 'Auth',
+    component: () => import(/* webpackChunkName: "auth" */ '../views/Public/Auth/Index')
+  },
+  {
+    path: '/guide',
+    name: 'Guia',
+    component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
+  },
+  {
+    path: '/guide/announce',
+    name: 'Anunciar - Guia',
+    meta: { requiresAuth: true },
+    component: () => import(/* webpackChunkName: "announceguide" */ '@/views/Public/Guide/Announce'),
+  },
+
+  {
     path: '/',
     name: 'Início',
     component: () => import(/* webpackChunkName: "home" */ '@/views/Public/Home')
@@ -39,16 +56,7 @@ const routes = [
     name: 'Município',
     component: () => import(/* webpackChunkName: "townHall" */ '@/views/Public/TownHall/Index'),
   },
-  {
-    path: '/guide',
-    name: 'Guia',
-    component: () => import(/* webpackChunkName: "guide" */ '@/views/Public/Guide/Index'),
-  },
-  {
-    path: '/guide/announce',
-    name: 'Anunciar - Guia',
-    component: () => import(/* webpackChunkName: "announce-guide" */ '@/views/Public/Guide/Announce'),
-  },
+  
   {
     path: '/profile',
     name: 'Profile',

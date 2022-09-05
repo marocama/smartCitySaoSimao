@@ -72,7 +72,7 @@
 <script>
     export default {
       components: {
-        ModalOrganic: () => import('@/components/Modals/Organic'),
+        // ModalOrganic: () => import('@/components/Modals/Organic'),
       }
     }
     </script>

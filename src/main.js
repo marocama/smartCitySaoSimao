@@ -4,6 +4,7 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import './registerServiceWorker'
+import { auth } from './firebase'
 import 'tailwindcss/tailwind.css'
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
@@ -14,8 +15,11 @@ Vue.config.productionTip = false
 Vue.component('modal', Modal)
 Vue.use(Toast, {})
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+auth.onAuthStateChanged(user => {
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+  if (user) { store.dispatch('fetchUserProfile') }
+})

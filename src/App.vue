@@ -5,7 +5,7 @@
     <!-- Aplicação -->
     <div class="wrapper">
       <!-- Navbar -->
-      <nav class="py-5 px-10 flex justify-between items-center bg-transparent">
+      <nav v-if="$route.name !== 'Auth'" class="py-5 px-10 flex justify-between items-center bg-transparent">
         <!-- Logo --> 
         <router-link to="/" class="flex-shrink-0">
           <img :src="require('@/assets/logo.svg')" class="py-0.5 w-auto h-10" alt="São Simão" />
@@ -65,7 +65,6 @@
 </template>
 
 <script>
-
 export default {
   components: {
     Login: () => import('@/components/Modals/Auth/Login'),

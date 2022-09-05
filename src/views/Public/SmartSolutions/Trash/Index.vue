@@ -70,7 +70,7 @@
 <script>
     export default {
       components: {
-        ModalTrash: () => import('@/components/Modals/Trash'),
+        // ModalTrash: () => import('@/components/Modals/Trash'),
       }
     }
     </script>
