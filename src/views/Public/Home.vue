@@ -1,5 +1,9 @@
 <template>
-  <div class="py-16 sm:pt-20 sm:pb-24 lg:pt-24">
+  <main v-if="true">
+    <video class="absolute inset-0" autoplay src="https://firebasestorage.googleapis.com/v0/b/saosimao.appspot.com/o/config%2Flandscape.webm?alt=media&token=c6f7f67c-e2bd-443f-9751-1d500d37d5ac">
+    </video>
+  </main>
+  <div v-else class="py-16 sm:pt-20 sm:pb-24 lg:pt-24">kjhkjhkjhkhkhkhjkhj
     <div class="relative overflow-hidden">
       <header class="relative">
         <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
