@@ -1,21 +1,18 @@
 <template>
-  <div id="app" class="h-screen bg-gray-100">
+  <main id="app" class="h-screen">
     <Login />
     <Register />
     <!-- Aplicação -->
-    <div class="wrapper">
+    <div class="h-full flex flex-col">
       <!-- Navbar -->
-      <nav v-if="$route.name !== 'Auth'" class="py-5 px-10 flex justify-between items-center bg-transparent">
+      <nav v-if="$route.name !== 'Auth'" class="px-3 sm:px-10 h-14 flex justify-between items-center bg-white bg-opacity-50" style="z-index: 1">
         <!-- Logo --> 
         <router-link to="/" class="flex-shrink-0">
-          <img :src="require('@/assets/logo.svg')" class="py-0.5 w-auto h-10" alt="São Simão" />
+          <img :src="require('@/assets/logo.svg')" class="h-10" alt="São Simão" />
         </router-link>
         <!-- Rotas -->
         <div v-if="!$store.state.mobile" class="flex space-x-4 text-sm font-medium text-gray-900">
-          <router-link to="/" class="py-2 px-3 rounded-md hover:bg-gray-100" :class="{ 'bg-gray-100': $route.name === 'Início' }">Início</router-link>
-          <router-link to="/guide" class="py-2 px-3 rounded-md hover:bg-gray-100" :class="{ 'bg-gray-100': $route.name === 'Guia' }">Guia</router-link>
-          <router-link to="/smartSolutions" class="py-2 px-3 rounded-md hover:bg-gray-100" :class="{ 'bg-gray-100': $route.name === 'Soluções' }">Soluções Inteligentes</router-link>
-          <router-link to="/townHall" class="py-2 px-3 rounded-md hover:bg-gray-100" :class="{ 'bg-gray-100': $route.name === 'Município' }">Município</router-link>
+          <router-link v-for="(item, index) in menu" :key="`menu-${index}`" :to="item.to" class="py-2 px-3 rounded-md hover:bg-gray-100" :class="{ 'bg-gray-100': $route.name === item.name }">{{ item.label }}</router-link>
         </div>
         <!-- Minha Conta -->
         <button type="button" class="p-1.5 bg-gray-300 rounded-full text-white focus:outline-none">
@@ -23,12 +20,11 @@
         </button>
       </nav>
       <!-- Conteúdo -->
-      <main class="content">
-        <div class="py-3 main scrollbar">
-          <!-- <router-view class="h-full container" /> -->
-          <router-view class="h-full" />
+      <section class="h-full flex flex-column overflow-y-scroll overflow-x-hidden bg-red-500" style="background-color: rgb(240, 240, 240)">
+        <div ref="main" class="py-5 h-full w-full" :class="{ 'container': !extended }">
+          <router-view />
         </div>
-      </main>
+      </section>
       <!-- Bottom Navigation -->
       <div v-if="$store.state.mobile" class="py-2.5 px-5 flex justify-between items-center bg-white text-gray-400 border-t-2 shadow-lg">
         <router-link to="/" :class="{ 'text-gray-700': $route.name === 'Início' }">
@@ -61,7 +57,7 @@
         </router-link>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -70,6 +66,17 @@ export default {
     Login: () => import('@/components/Modals/Auth/Login'),
     Register: () => import('@/components/Modals/Auth/Register'),
   },
+
+  data() { return {
+    menu: [
+      { name: 'Início', label: 'Início', to: '/' },
+      { name: 'Guia', label: 'Guia', to: '/guide' },
+      { name: 'Soluções', label: 'Soluções Inteligentes', to: '/smartSolutions' },
+      { name: 'Município', label: 'Município', to: '/townHall' },
+    ]
+  } },
+
+  computed: { extended: function() { return this.$route?.meta?.extended || false } },
 
   mounted() { window.onresize = () => { this.$store.commit('setWindow', { width: window.innerWidth, height: window.innerHeight }) } },
 }

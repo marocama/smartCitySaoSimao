@@ -1,5 +1,5 @@
 <template>
-  <main class="mt-2 mx-20">
+  <main>
     <!-- Header -->
     <header class="mb-5 p-4 sm:px-6 flex justify-between items-center bg-white border border-gray-200 shadow-md rounded-lg">
       <div>
@@ -13,13 +13,16 @@
       </div>
     </header>
     <!-- Conteúdo -->
-    <section class="grid grid-cols-4 gap-6">
+    <section class="grid grid-cols-3 gap-6">
       <Card v-for="(item, index) in items" :key="index" :data="item" />
     </section>
     <!-- Filtro -->
-    <button @click="menu = true" type="button" class="p-2 fixed right-7 w-min rounded-full shadow-sm bg-purple-600 text-white focus:outline-none" :class="$store.state.mobile ? 'bottom-20' : 'bottom-4'">
-      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" /></svg>
-    </button>
+    <div @click="menu = true" class="fixed right-6 flex flex-col items-center cursor-pointer" :class="$store.state.mobile ? 'bottom-20' : 'bottom-4'">
+      <button type="button" class="p-2 w-min rounded-full shadow-sm bg-purple-600 text-white focus:outline-none">
+        <svg class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" /></svg>
+      </button>
+      <span v-if="!$store.state.mobile" class="mt-1 py-0.5 px-2.5 block bg-black text-white text-xs antialiased rounded-full">FILTRAR</span>
+    </div>
     <SliderOver v-model="menu" :size="$store.state.mobile ? 'sm' : 'xs'" title="Categoria" subtitle="Filtre os resultados da sua busca.">
       <ul class="grid grid-cols-2 gap-3">
         <button @click="get(item.label)" v-for="(item, index) in options" :key="index" type="button" class="p-3 h-18 flex flex-col items-center justify-center hover:bg-gray-50 rounded-lg" :class="item.label === selected ? 'border-2 bg-purple-50 border-purple-600 text-purple-600' : 'border border-gray-200 text-gray-500'">

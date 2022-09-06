@@ -24,6 +24,7 @@ const routes = [
   {
     path: '/',
     name: 'Início',
+    meta: { extended: true },
     component: () => import(/* webpackChunkName: "home" */ '@/views/Public/Home')
   },
   {

@@ -1,31 +1,3 @@
-/* 👉 ESTRUTURA 👈 */
-.wrapper {
-  width: 100%;
-  height: 100%;
-	display: flex;
-  margin: 0 auto;
-  min-height: 100%;
-	flex-direction: column;
-}
-
-/* 👉 CONTEÚDO 👈 */
-.content {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  overflow-y: auto;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* 👉 CONTEÚDO 👈 */
-.content .main{
-  position: relative;
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-}
-
 /* 👉 CONTAINER 👈 */
 .container{
   width: 100%;
@@ -33,6 +5,31 @@
   margin: 0 auto;
 }
 
+@media (max-width:360px) {
+  .container{
+    max-width: 100% !important;
+    padding: 0px 5px 0px 5px;
+  }
+}
+
+@media (min-width:361px) and (max-width:768px) {
+  .container{
+    max-width: 100% !important;
+    padding: 0px 5px 0px 5px;
+  }
+}
+
+@media (min-width:769px) and (max-width:1280px) {
+  .container{
+    max-width: 90% !important;
+  }
+}
+
+@media (min-width:1281px) {
+  .container{
+    max-width: 70% !important;
+  }
+}
 
 /* 👉 SCROLLBAR 👈 */
 .scrollbar::-webkit-scrollbar, .scrollfix::-webkit-scrollbar {
