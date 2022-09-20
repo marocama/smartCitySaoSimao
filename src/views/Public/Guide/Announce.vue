@@ -21,13 +21,13 @@
         <div>
           <label for="clock" class="block text-xs font-normal antialiased truncate" :class="`${(err.show) ? 'text-red-600' : 'text-gray-700'}`">Horário de funcionamento</label>
           <ul class="mt-1.5 relative grid grid-cols-7 text-center text-gray-700 space-x-6">
-            <li class="bg-gray-200 rounded-full opacity-40">Domingo</li>
-            <li class="bg-gray-200 rounded-full opacity-40">Segunda</li>
-            <li class="bg-gray-200 rounded-full opacity-40">Terça</li>
-            <li class="bg-gray-200 rounded-full opacity-40">Quarta</li>
-            <li class="bg-gray-200 rounded-full opacity-40">Quinta</li>
-            <li class="bg-gray-200 rounded-full opacity-40">Sexta</li>
-            <li class="bg-gray-200 rounded-full opacity-40">Sábado</li>
+            <li @click="$store.dispatch('modals/open', 'time')" class="bg-gray-200 rounded-full opacity-40">Domingo</li>
+            <li @click="$store.dispatch('modals/open', 'time')" class="bg-gray-200 rounded-full opacity-40">Segunda</li>
+            <li @click="$store.dispatch('modals/open', 'time')" class="bg-gray-200 rounded-full opacity-40">Terça</li>
+            <li @click="$store.dispatch('modals/open', 'time')" class="bg-gray-200 rounded-full opacity-40">Quarta</li>
+            <li @click="$store.dispatch('modals/open', 'time')" class="bg-gray-200 rounded-full opacity-40">Quinta</li>
+            <li @click="$store.dispatch('modals/open', 'time')" class="bg-gray-200 rounded-full opacity-40">Sexta</li>
+            <li @click="$store.dispatch('modals/open', 'time')" class="bg-gray-200 rounded-full opacity-40">Sábado</li>
           </ul>
         </div>
         <!-- Imagens -->
@@ -54,6 +54,34 @@
       </div>
       <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">Anunciar</button>
     </form>
+    <modal id="time" title="Defina o horário de funcionamento" fullscreen>
+      <div class="my-5 grid grid-cols-3 gap-5">
+        <p class="my-auto text-gray-600">Domingo</p>
+        <Input name="startDomingo" inputmode="time" />
+        <Input name="endDomingo" inputmode="time" />
+        <p class="my-auto text-gray-600">Segunda</p>
+        <Input name="startDomingo" inputmode="time" />
+        <Input name="endDomingo" inputmode="time" />
+        <p class="my-auto text-gray-600">Terça</p>
+        <Input name="startDomingo" inputmode="time" />
+        <Input name="endDomingo" inputmode="time" />
+        <p class="my-auto text-gray-600">Quarta</p>
+        <Input name="startDomingo" inputmode="time" />
+        <Input name="endDomingo" inputmode="time" />
+        <p class="my-auto text-gray-600">Quinta</p>
+        <Input name="startDomingo" inputmode="time" />
+        <Input name="endDomingo" inputmode="time" />
+        <p class="my-auto text-gray-600">Sexta</p>
+        <Input name="startDomingo" inputmode="time" />
+        <Input name="endDomingo" inputmode="time" />
+        <p class="my-auto text-gray-600">Sábado</p>
+        <Input name="startDomingo" inputmode="time" />
+        <Input name="endDomingo" inputmode="time" />
+      </div>
+      <template #actions>
+        <Button text="Salvar" class="mt-auto" />
+      </template>
+    </modal>
   </main>
 </template>
 
@@ -67,6 +95,7 @@ export default {
     Input: () => import('@/components/Inputs/Default'),
     Select: () => import('@/components/Inputs/Select'),
     InputMask: () => import('@/components/Inputs/Mask'),
+    Button: () => import('@/components/Buttons/Default'),
   },
     
   data() { return {

@@ -29,7 +29,6 @@ const GuideColl = db.collection('Guide')
 const UsersColl = db.collection('Users')
 const TripsColl = db.collection('Trips')
 
-
 export {
   db, 
   auth,
