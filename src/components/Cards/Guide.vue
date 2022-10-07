@@ -3,19 +3,19 @@
     <!-- Carrossel -->
     <div class="swiperCarousel swiper-button-hidden relative text-white rounded-b-lg overflow-hidden shadow-md z-0">
       <div class="swiper-wrapper">
-        <div v-for="(item, index) in data.Images" :key="index" class="swiper-slide flex justify-center">
+        <div v-for="(item, index) in data.Gallery" :key="index" class="swiper-slide flex justify-center">
           <img class="h-40 w-full object-cover rounded-t-lg swiper-lazy" :src="item" />
           <div class="swiper-lazy-preloader" />
         </div>
       </div>
       <div v-if="arrows" class="swiper-button-next" />
       <div v-if="arrows" class="swiper-button-prev" />
-      <span class="py-0.5 px-3 absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-sm rounded-full" style="z-index: 1">{{ data.Category }}</span>
+      <span class="py-0.5 px-3 absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-sm rounded-full" style="z-index: 1">{{ data.Sector }}</span>
     </div>
     <!-- Conteúdo -->
     <div class="px-3 py-2 border-b">
-      <p class="text-lg font-medium">{{ data.Name }}</p>
-      <p class="text-sm text-gray-500">{{ "Bragança Paulista, SP" }}</p>
+      <p class="text-lg font-medium">{{ data.Title }}</p>
+      <p v-if="data.Address" class="text-sm text-gray-500">{{ data.Address.City }} / {{ data.Address.State }}</p>
     </div>
     <div class="py-2 grid grid-cols-2 divide-x bg-gray-50 text-gray-500 antialiased">
       <button type="button" class="flex justify-center items-center space-x-2 hover:text-purple-500">

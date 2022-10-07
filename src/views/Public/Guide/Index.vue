@@ -66,7 +66,7 @@ export default {
     async get(item) {
       this.selected = (item === this.selected) ? '' : item
 
-      const query = this.selected ? GuideColl.where('Category', '==', this.selected) : GuideColl.orderBy('CreatedAt', 'desc')
+      const query = this.selected ? GuideColl.where('Sector', '==', this.selected) : GuideColl.orderBy('CreatedAt', 'desc')
 
       await query.limit(8).get()
       .then(result => { console.log(result), this.items = result.docs.map(item => { return { id: item.id, ...item.data() } }) })

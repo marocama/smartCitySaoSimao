@@ -27,6 +27,7 @@ export default {
     value: { type: String, required: true },
     loading: { type: Boolean, default: false },
     placeholder: { type: String, default: '' },
+    required: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     readonly: { type: Boolean, default: false },
     inputmode: { type: String, default: 'text' },
@@ -36,6 +37,8 @@ export default {
 
   computed: {
     errors: function () {
+      // Required validation
+      if (this.required && !this.value) { return 'Campo requerido!' }
       // String validation
       if (!Array.isArray(this.format) && this.value.length !== this.format.length) { return 'Campo inválido' }
       // Array validation
