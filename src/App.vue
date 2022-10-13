@@ -5,23 +5,22 @@
     <!-- Aplicação -->
     <div class="h-full flex flex-col">
       <!-- Navbar -->
-      <nav v-if="$route.name !== 'Auth'" class="px-3 sm:px-10 h-14 flex justify-between items-center bg-white bg-opacity-50" style="z-index: 1">
+      <nav v-if="$route.name !== 'Auth'" class="px-3 h-14 flex justify-between items-center bg-white" style="z-index: 2">
         <!-- Logo --> 
         <router-link to="/" class="flex-shrink-0">
-          <img :src="require('@/assets/logo.svg')" class="h-10" alt="São Simão" />
+          <!-- <img :src="require('@/assets/teste.svg')" class="h-10" alt="São Simão" /> -->
         </router-link>
         <!-- Rotas -->
-        <div v-if="!$store.state.mobile" class="flex space-x-4 text-sm font-medium text-gray-900">
+        <div v-if="!$store.state.mobile && $route.name !== 'Início'" class="flex space-x-4 text-sm font-medium text-gray-900">
           <router-link v-for="(item, index) in menu" :key="`menu-${index}`" :to="item.to" class="py-2 px-3 rounded-md hover:bg-gray-100" :class="{ 'bg-gray-100': $route.name === item.name }">{{ item.label }}</router-link>
         </div>
         <!-- Minha Conta -->
-        <button type="button" class="p-1.5 bg-gray-300 rounded-full text-white focus:outline-none">
-          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
-        </button>
+        <router-link v-if="logged" to='/profile'><Avatar id="CURRENTUSER" size="9" /></router-link>
+        <router-link v-else to="/auth" class="bt-rounded inline-flex items-center"><svg class="h-4 w-4" preserveAspectRatio="xMidYMid meet" viewBox="0 0 717 672"><path d="M391 672h195c37 0 68-13 92-38c24-24 39-56 39-92V151c0-36-15-68-39-92s-56-38-92-38H391v82h195c28 0 49 21 49 48v391c0 27-21 49-49 49H391v81zM0 269v156c0 18 15 33 33 33h182v123c0 11 5 20 15 25c4 1 9 1 11 1c7 0 13-2 18-7l235-235c9-9 8-27 0-37L259 94c-8-8-18-9-29-6c-10 5-15 13-15 24v124H33c-18 0-33 15-33 33z" fill="currentColor"/></svg><span class="ml-2 text-xs font-medium">Entrar</span></router-link>
       </nav>
       <!-- Conteúdo -->
       <section class="h-full flex flex-column overflow-y-scroll overflow-x-hidden bg-red-500" style="background-color: rgb(240, 240, 240)">
-        <div ref="main" class="py-5 h-full w-full" :class="{ 'container': !extended }">
+        <div ref="main" class="h-full w-full" :class="{ 'container': !extended, 'py-5': $route.name !== 'Auth' }">
           <router-view />
         </div>
       </section>
@@ -61,8 +60,11 @@
 </template>
 
 <script>
+import { auth } from './firebase'
+
 export default {
   components: {
+    Avatar: () => import('@/components/User/Avatar'),
     Login: () => import('@/components/Modals/Auth/Login'),
     Register: () => import('@/components/Modals/Auth/Register'),
   },
@@ -76,7 +78,10 @@ export default {
     ]
   } },
 
-  computed: { extended: function() { return this.$route?.meta?.extended || false } },
+  computed: { 
+    logged: function () { return auth.currentUser?.uid },
+    extended: function() { return this.$route?.meta?.extended || false },
+  },
 
   mounted() { window.onresize = () => { this.$store.commit('setWindow', { width: window.innerWidth, height: window.innerHeight }) } },
 }

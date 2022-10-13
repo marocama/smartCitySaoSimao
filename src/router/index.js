@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { auth } from  '../firebase'
 
 Vue.use(VueRouter)
 
@@ -54,11 +55,13 @@ const routes = [
   {
     path: '/auth',
     name: 'Auth',
+    meta: { extended: true },
     component: () => import(/* webpackChunkName: "auth" */ '../views/Public/Auth/Index')
   },
   {
     path: '/profile',
     name: 'Profile',
+    meta: { requiresAuth: true },
     component: () => import(/* webpackChunkName: "profile" */ '@/views/Logged/Profile/Index'),
   },
   {
@@ -72,6 +75,16 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach(async (to, from, next) => {
+  // Usuário não autenticado
+  if (to.matched.some(x => x.meta.requiresAuth) && !auth.currentUser) {
+    next('/auth')
+  // Nenhum bloqueio, redireciona para o destino
+  } else {
+    next()
+  }
 })
 
 export default router

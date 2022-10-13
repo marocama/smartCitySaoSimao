@@ -1,8 +1,7 @@
 <template>
   <div class="min-h-full flex">
-    <div class="py-12 px-4 sm:px-6 lg:px-20 xl:px-24 flex flex-1 flex-col justify-center lg:flex-none">
+    <div class="px-4 sm:px-6 lg:px-20 xl:px-24 flex flex-1 flex-col justify-center lg:flex-none">
       <div class="mx-auto w-full max-w-sm lg:w-96">
-        <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=purple&shade=600" alt="Your Company">
         <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">{{ { 'login': 'Faça login em sua conta', 'forgot': 'Recupere sua conta', 'register-1': 'Cadastre sua conta', 'register-2': 'Informe seu endereço' }[form] }}</h2>
         <!-- Login -->
         <form @submit.prevent="signin" v-if="form === 'login'" class="mt-6">
@@ -45,21 +44,21 @@
             <Input v-model="register.address.city" name="city" label="Cidade" :validations="{ required: true }" :loading="loading === 'ADDRESS'" :disabled="!!loading" :error="err" />
             <Select v-model="register.address.state" name="state" required label="Estado" :loading="loading === 'ADDRESS'" :disabled="!!loading" :error="err" :values="['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']" maxheight="10rem" />
           </div>
-          <Button text="Cadastrar" type="submit" class="mt-8" :loading="loading" />
+          <Button text="Cadastrar" type="submit" class="mt-8" :loading="!!loading" />
           <button @click="form = 'register-1'" type="button" class="mt-6 w-full text-sm text-center font-medium text-purple-600 hover:text-purple-500">Voltar</button>
         </form>
         <!-- Esqueci minha senha -->
         <form @submit.prevent="recover" v-else-if="form === 'forgot'" class="mt-6">
           <!-- Email -->
           <Input v-model="forgot.email" name="email" label="Endereço de email" inputmode="email" :validations="{ email: true }" :disabled="!!loading" :error="err" />
-          <Button text="Recuperar" type="submit" class="mt-8" :loading="loading" />
+          <Button text="Recuperar" type="submit" class="mt-8" :loading="!!loading" />
           <button @click="form = 'login'" type="button" class="mt-6 w-full text-sm text-center font-medium text-purple-600 hover:text-purple-500">Voltar</button>
         </form>
       </div>
     </div>
     <!-- Fundo -->
     <div class="w-0 relative hidden flex-1 lg:block">
-      <div class="absolute inset-0 h-full w-full bg-purple-500 opacity-30" style="z-index: 1" />
+      <div class="absolute inset-0 h-full w-full bg-purple-600 opacity-20" style="z-index: 1" />
       <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80" alt="Fundo">
     </div>
   </div>
@@ -107,7 +106,7 @@ export default {
     async signin() {
       this.loading = true
       await auth.signInWithEmailAndPassword(this.login.email, this.login.password)
-      .then(() => { this.$toast.success('Login efetuado com sucesso'), this.$router.replace('/') })
+      .then(() => { this.$toast.success('Login efetuado com sucesso') })
       .catch(err => this.$toast.error({ 
         'auth/invalid-email': 'E-mail inválido, tente novamente', 
         'auth/user-disabled': 'Conta desativada, entre em contato', 
@@ -118,13 +117,13 @@ export default {
 
     next_signup() {
       this.err.show = false
-      for (const field in this.err.list) { if (this.err.list[field]) { console.log(this.err.list); this.err.show = true; break }  }
+      for (const field in this.err.list) { if (this.err.list[field]) { this.err.show = true; break }  }
       if (this.err.show) { this.$toast.error('Dados pendentes') } else { this.form = 'register-2' }
     },
 
     async signup() {
       this.err.show = false
-      for (const field in this.err.list) { if (this.err.list[field]) { console.log(this.err.list); this.err.show = true; break } }
+      for (const field in this.err.list) { if (this.err.list[field]) { this.err.show = true; break } }
       if (this.err.show) { this.$toast.error('Dados pendentes'); return }
 
       this.loading = true
@@ -135,7 +134,7 @@ export default {
           Email: this.register.email || '',
           Address: { Number: this.register.address.number || '', PostalCode: this.register.address.postalcode || '', Street: this.register.address.street || '', Neighborhood: this.register.address.neighborhood || '', City: this.register.address.city || '', State: this.register.address.state || '' },
         })
-        this.$toast.success('Conta criada com sucesso'), this.$router.replace('/')
+        this.$toast.success('Conta criada com sucesso')
       })
       .catch(err => { 
         this.$toast.error({ 
