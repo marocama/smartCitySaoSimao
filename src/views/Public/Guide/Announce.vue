@@ -81,7 +81,7 @@
 
 <script>
 import axios from 'axios'
-import { GuideColl } from '@/firebase'
+import { auth, GuideColl } from '@/firebase'
   
 export default {
   components: { 
@@ -108,6 +108,10 @@ export default {
       Time: { Sunday: { Start: '', End: '' }, Monday: { Start: '', End: '' }, Tuesday: { Start: '', End: '' }, Wednesday: { Start: '', End: '' }, Thursday: { Start: '', End: '' }, Friday: { Start: '', End: '' }, Saturday: { Start: '', End: '' } },
     },
   }},
+
+  mounted() {
+    console.log()
+  },
     
   methods: {
     async announce(step) {
@@ -118,7 +122,7 @@ export default {
       this.loading = true
       if (step === 'MEDIAS') { this.$refs.uploader.upload(); return }
       if (step === 'DATA') { 
-        await GuideColl.add({ ...this.form, CreatedAt: new Date() })
+        await GuideColl.add({ ...this.form, ...(auth.currentUser && { User: auth.currentUser.uid }), CreatedAt: new Date() })
         .then(() => {
           this.$toast.success('Anuncio cadastrado com sucesso')
           this.$router.replace('/guide')

@@ -60,9 +60,20 @@ const routes = [
   },
   {
     path: '/profile',
-    name: 'Profile',
     meta: { requiresAuth: true },
     component: () => import(/* webpackChunkName: "profile" */ '@/views/Logged/Profile/Index'),
+    children: [
+      {
+        path: '',
+        name: 'Profile',
+        component: () => import(/*webpackChunkName: "main" */'@/views/Logged/Profile/Profile'),
+      },
+      {
+        path: 'password',
+        name: 'Password',
+        component: () => import(/*webpackChunkName: "password" */'@/views/Logged/Profile/Password'),
+      },
+    ]
   },
   {
     path: '*',

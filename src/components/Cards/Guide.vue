@@ -8,8 +8,8 @@
           <div class="swiper-lazy-preloader" />
         </div>
       </div>
-      <div v-if="arrows" class="swiper-button-next" />
-      <div v-if="arrows" class="swiper-button-prev" />
+      <div v-show="arrows" class="swiper-button-next" />
+      <div v-show="arrows" class="swiper-button-prev" />
       <span class="py-0.5 px-3 absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-sm rounded-full" style="z-index: 1">{{ data.Sector }}</span>
     </div>
     <!-- Conteúdo -->

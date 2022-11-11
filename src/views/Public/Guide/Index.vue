@@ -8,20 +8,22 @@
       </div>
       <div class="inline-flex justify-start space-x-3">
         <router-link to="/guide/announce" class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Anunciar</router-link>
-        <button type="button" class="p-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
-        <button type="button" class="p-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+        <button @click="menu = true" type="button" class="p-2 bg-white hover:bg-gray-50 text-gray-500 border border-gray-300 text-sm font-medium rounded-md"><svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" /></svg></button>
       </div>
     </header>
     <!-- Conteúdo -->
     <section class="grid grid-cols-3 gap-6">
       <Card v-for="(item, index) in items" :key="index" :data="item" />
     </section>
-    <!-- Filtro -->
-    <div @click="menu = true" class="fixed right-6 flex flex-col items-center cursor-pointer" :class="$store.state.mobile ? 'bottom-20' : 'bottom-4'">
-      <button type="button" class="p-2 w-min rounded-full shadow-sm bg-purple-600 text-white focus:outline-none">
-        <svg class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" /></svg>
+    <div class="py-5 flex justify-center space-x-5">
+      <button type="button" class="p-2 inline-flex bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        <span class="px-2">Anterior</span>
       </button>
-      <span v-if="!$store.state.mobile" class="mt-1 py-0.5 px-2.5 block bg-black text-white text-xs antialiased rounded-full">FILTRAR</span>
+      <button type="button" class="p-2 inline-flex bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md">
+        <span class="px-2">Próximo</span>
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+      </button>
     </div>
     <SliderOver v-model="menu" :size="$store.state.mobile ? 'sm' : 'xs'" title="Categoria" subtitle="Filtre os resultados da sua busca.">
       <ul class="grid grid-cols-2 gap-3">
