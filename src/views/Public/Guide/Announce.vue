@@ -108,10 +108,6 @@ export default {
       Time: { Sunday: { Start: '', End: '' }, Monday: { Start: '', End: '' }, Tuesday: { Start: '', End: '' }, Wednesday: { Start: '', End: '' }, Thursday: { Start: '', End: '' }, Friday: { Start: '', End: '' }, Saturday: { Start: '', End: '' } },
     },
   }},
-
-  mounted() {
-    console.log()
-  },
     
   methods: {
     async announce(step) {

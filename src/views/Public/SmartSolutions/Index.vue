@@ -1,7 +1,49 @@
 <template>
   <main class="mt-2 mx-20">
+    <ul class="mb-5 grid grid-cols-4 gap-5">
+      <li class="p-4 bg-white border border-gray-200 rounded-lg shadow-md">
+        <div class="-mt-7 mb-2 flex justify-between items-end">
+          <span class="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>
+          </span>
+          <svg class="pb-0.5 w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z" clip-rule="evenodd" /></svg>
+        </div>
+        <span class="block font-semibold antialiased">Transporte acessível</span>
+        <span class="block text-xs text-gray-500">Agende horários online.</span>
+      </li>
+      <li class="p-4 bg-white border border-gray-200 rounded-lg shadow-md">
+        <div class="-mt-7 mb-2 flex justify-between items-end">
+          <span class="rounded-lg inline-flex p-3 bg-blue-50 text-blue-700 ring-4 ring-white">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
+          </span>
+          <svg class="pb-0.5 w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z" clip-rule="evenodd" /></svg>
+        </div>
+        <span class="block font-semibold antialiased">Carona solidária</span>
+        <span class="block text-xs text-gray-500">Compartilhe suas viagens.</span>
+      </li>
+      <li class="p-4 bg-white border border-gray-200 rounded-lg shadow-md">
+        <div class="-mt-7 mb-2 flex justify-between items-end">
+          <span class="rounded-lg inline-flex p-3 bg-green-50 text-green-700 ring-4 ring-white">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" /></svg>
+          </span>
+          <svg class="pb-0.5 w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z" clip-rule="evenodd" /></svg>
+        </div>
+        <span class="block font-semibold antialiased">Produtos Rurais</span>
+        <span class="block text-xs text-gray-500">Feira orgânica local.</span>
+      </li>
+      <li class="p-4 bg-white border border-gray-200 rounded-lg shadow-md">
+        <div class="-mt-7 mb-2 flex justify-between items-end">
+          <span class="rounded-lg inline-flex p-3 bg-yellow-50 text-yellow-700 ring-4 ring-white">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+          </span>
+          <svg class="pb-0.5 w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z" clip-rule="evenodd" /></svg>
+        </div>
+        <span class="block font-semibold antialiased">Acomodações</span>
+        <span class="block text-xs text-gray-500">Hospedagens na cidade.</span>
+      </li>
+    </ul>
     <!-- Header -->
-    <section class="mb-5 p-4 sm:px-6 flex justify-between items-center bg-white border border-gray-200 shadow-md rounded-lg">
+    <!-- <section class="mb-5 p-4 sm:px-6 flex justify-between items-center bg-white border border-gray-200 shadow-md rounded-lg">
       <div>
         <h3 class="text-gray-600 text-lg font-medium">{{ selected || 'Soluções Inteligentes' }}</h3>
         <p class="text-sm text-gray-500">Exibindo {{ items.length }} resultados</p>
@@ -11,7 +53,7 @@
         <button type="button" class="p-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
         <button type="button" class="p-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
       </div>
-    </section>
+    </section> -->
     <!-- Conteúdo -->
     <section class="grid grid-cols-4 gap-6">
       <Card v-for="(item, index) in items" :key="index" :data="item" />
@@ -38,7 +80,7 @@ import { GuideColl } from '@/firebase'
 export default {
 
   components: {
-    Button: () => import('@/components/Buttons/Default'),
+    // Button: () => import('@/components/Buttons/Default'),
     SliderOver: () => import('@/components/SlideOver/Default'),
 },
   data() { return {
