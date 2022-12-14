@@ -40,7 +40,7 @@
             <span class="text-xs">Guia</span>
           </div>
         </router-link>
-        <router-link to="/smartSolutions" :class="{ 'text-gray-700': $route.name === 'Soluções' }">
+        <router-link to="/solutions" :class="{ 'text-gray-700': $route.name === 'Soluções' }">
           <div class="flex flex-col items-center">
             <svg v-if="$route.name === 'Soluções'" class="h-6 w-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" d="M11 3a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0V3Zm4.657 2.757a1 1 0 0 0-1.414-1.414l-.707.707a1 1 0 0 0 1.414 1.414l.707-.707ZM18 10a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM5.05 6.464A1 1 0 1 0 6.464 5.05l-.707-.707a1 1 0 0 0-1.414 1.414l.707.707ZM5 10a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm3 6v-1h4v1a2 2 0 1 1-4 0Zm4-2c.015-.34.208-.646.477-.859a4 4 0 1 0-4.954 0c.27.213.462.519.476.859h4.002Z"/></svg>
             <svg v-else class="h-6 w-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547Z"/></svg>
@@ -73,7 +73,7 @@ export default {
     menu: [
       { name: 'Início', label: 'Início', to: '/' },
       { name: 'Guia', label: 'Guia', to: '/guide' },
-      { name: 'Soluções', label: 'Soluções Inteligentes', to: '/smartSolutions' },
+      { name: 'Soluções', label: 'Soluções Inteligentes', to: '/solutions' },
       { name: 'Município', label: 'Município', to: '/townHall' },
     ]
   } },

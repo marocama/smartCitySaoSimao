@@ -1,0 +1,34 @@
+<template>
+  <div class="overflow-y-hidden">
+    <div>
+      <p>header</p>
+      <p>header</p>
+      <p>header</p>
+    </div>
+    <div class="h-full overflow-y-scroll">
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+      <p>content</p>
+    </div>
+  </div>
+</template>

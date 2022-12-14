@@ -242,6 +242,9 @@
             <button type="button" class="p-2 bg-white hover:bg-gray-50 text-green-700 border border-green-200 text-sm font-medium rounded-md"><svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" /></svg></button>
           </div>
         </header>
+        <section class="grid grid-cols-3 gap-6">
+          <!-- <Card v-for="(item, index) in items" :key="index" :data="item" /> -->
+        </section>
       </div>
       <div v-else-if="visible === 'collect'" class="h-full">
         <header class="-mx-4 -mt-4 mb-5 p-4 sm:px-6 flex justify-between items-center bg-yellow-50 border-b border-yellow-200 shadow-sm rounded-t-lg">

@@ -21,7 +21,7 @@
         <router-link to="/guide" class="p-3 h-18 flex items-center justify-center space-x-3 bg-black bg-opacity-50 hover:bg-opacity-60 rounded-lg text-white">
           <p class="px-4 font-semibold text-sm antialiased">GUIA</p>
         </router-link>
-        <router-link to="/smartSolutions" class="p-3 h-18 flex items-center justify-center space-x-3 bg-black bg-opacity-50 hover:bg-opacity-60 rounded-lg text-white">
+        <router-link to="/solutions" class="p-3 h-18 flex items-center justify-center space-x-3 bg-black bg-opacity-50 hover:bg-opacity-60 rounded-lg text-white">
           <p class="px-4 font-semibold text-sm antialiased">SOLUÇÕES INTELIGENTES</p>
         </router-link>
       </div>

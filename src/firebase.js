@@ -27,6 +27,9 @@ const GoogleProvider = new firebase.auth.GoogleAuthProvider()
 
 const GuideColl = db.collection('Guide')
 const UsersColl = db.collection('Users')
+const RidesColl = db.collection('Rides')
+
+
 const TripsColl = db.collection('Trips')
 
 export {
@@ -36,6 +39,7 @@ export {
   storage,
   GuideColl,
   UsersColl,
+  RidesColl,
   TripsColl,
   storageRef,
   GoogleProvider,
