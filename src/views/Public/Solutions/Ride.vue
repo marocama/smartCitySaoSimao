@@ -46,19 +46,14 @@
     </ul>
     <!-- Anunciar -->
     <modal id="announce" title="Anunciar" fullscreen>
-      <div class="m-5 pt-5  grid grid-cols-3 gap-5">
-        <p class="my-auto text-gray-600">Horário de partida</p>
-        <Input v-model="form.OccursAt" name="startTime" inputmode="datetime-local" :loading="loading === 'SAVING'" :disabled="!!loading" />
-        <InputMask v-model.lazy="form.Price" name="price" label="Preço" inputmode="numeric" :format="'##,##'" :loading="loading === 'SAVING'" :disabled="!!loading" :error="err" />
-        <Input v-model="form.From" name="from" label="Local de Partida" class="col-span-2" :validations="{ required: true }" :loading="loading === 'SAVING'" :disabled="!!loading" :error="err" />
-        <Input v-model="form.To" name="to" label="Local de Destino" class="col-span-2" :validations="{ required: true }" :loading="loading === 'SAVING'" :disabled="!!loading" :error="err" />
-
-        
-        <p class="my-auto text-gray-600">Horário de partida</p>
-        <p class="my-auto text-gray-600">Local de Origem</p>
-        <p class="my-auto text-gray-600">Local de Destino</p>
-        <p class="my-auto text-gray-600">Valor</p>
-        
+      <div class="mt-2 mb-4 sm:w-80 space-y-3">
+        <div>
+          <label class="mb-1 block text-gray-700 text-xs font-normal antialiased truncate">Horário de partida</label>
+          <Input v-model="form.OccursAt" name="startTime" inputmode="datetime-local" :loading="loading === 'SAVING'" :disabled="!!loading" />
+        </div>
+        <Input v-model="form.From" name="from" label="Local de Partida" placeholder="Bairro de Partida" :loading="loading === 'SAVING'" :disabled="!!loading" />
+        <Input v-model="form.To" name="to" label="Local de Destino" placeholder="Bairro de Destino" :loading="loading === 'SAVING'" :disabled="!!loading" />
+        <InputMask v-model.lazy="form.Price" name="price" label="Preço" inputmode="numeric" placeholder="0,00" prefix="R$" :format="['#,##', '##,##']" :loading="loading === 'SAVING'" :disabled="!!loading" @change="formatPrice" />
       </div>
       <template #actions>
         <Button @click="$store.dispatch('modals/close', 'announce')" text="Salvar" class="mt-auto" />
@@ -68,7 +63,7 @@
 </template>
 
 <script>
-import { RidesColl } from '@/firebase'
+import { auth, RidesColl } from '@/firebase'
 
 export default {
   components: {
@@ -81,8 +76,7 @@ export default {
   data() { return {
     items: [],
     loading: true,
-    err: { show: false, list: {} },
-    form: { OccursAt: '', From: '', To: '', Price: '' },
+    form: { OccursAt: '', From: '', To: '', Price: '0,00' },
   } },
 
   async mounted() {
@@ -90,6 +84,25 @@ export default {
     .then(result => { console.log(result), this.items = result.docs.map(item => ({ id: item.id, ...item.data() })) })
     .catch(err => console.log(err))
     this.loading = false
+  },
+
+  methods: {
+    formatPrice() {
+      let decimal = '00'
+      const split = this.form.Price.split(',')
+      if ((split[1] || '').length === 1) { decimal = `${split[1]}0` } else if ((split[1] || '').length === 2) { decimal = split[1] }
+      this.form.Price = `${split[0] || '0'},${decimal}`
+    },
+
+    async announce() {
+      this.loading = 'SAVING'
+      await RidesColl.add({
+        ...this.form,
+        CreatedAt: new Date(),
+        ...(auth.currentUser && { User: auth.currentUser.uid }),
+      })
+      this.loading = false
+    }
   }
 }
 </script>
