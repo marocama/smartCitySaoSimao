@@ -24,7 +24,7 @@ const routes = [
   },
   {
     path: '/solutions',
-    name: 'Solucões Inteligentes',
+    name: 'Solucões',
     component: () => import(/* webpackChunkName: "solutions" */ '@/views/Public/Solutions/Index'),
     children: [
       {
@@ -86,7 +86,7 @@ const routes = [
   },
   {
     path: '/smartSolutions',
-    name: 'Soluções',
+    name: 'Soluções2',
     component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Index'),
   },
   {
@@ -105,9 +105,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Trash/Index'),
   },
   {
-    path: '/townHall',
+    path: '/city',
     name: 'Município',
-    component: () => import(/* webpackChunkName: "townHall" */ '@/views/Public/TownHall/Index'),
+    component: () => import(/* webpackChunkName: "city" */ '@/views/Public/City'),
   },
 ]
 

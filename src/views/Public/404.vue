@@ -1,3 +1,3 @@
 <template>
-  <p>rota nao existe</p>
+  <p class="mt-5 text-center">Ops, página não localizada...</p>
 </template>

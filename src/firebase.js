@@ -29,9 +29,6 @@ const GuideColl = db.collection('Guide')
 const UsersColl = db.collection('Users')
 const RidesColl = db.collection('Rides')
 
-
-const TripsColl = db.collection('Trips')
-
 export {
   db, 
   auth,
@@ -40,7 +37,6 @@ export {
   GuideColl,
   UsersColl,
   RidesColl,
-  TripsColl,
   storageRef,
   GoogleProvider,
 }
