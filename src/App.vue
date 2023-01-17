@@ -11,7 +11,7 @@
     </nav>
     <!-- Conteúdo -->
     <section class="flex-grow overflow-y-scroll overflow-x-hidden relative">
-      <div ref="main" class="" :class="{ 'container': !extended, 'p-3': !['Início', 'Auth'].includes($route.name) }">
+      <div ref="main" class="h-full" :class="{ 'container': !extended, 'p-3': !['Início', 'Auth'].includes($route.name) }">
         <router-view />
       </div>
     </section>
@@ -53,7 +53,7 @@
 import { auth } from './firebase'
 
 export default {
-  components: { Avatar: () => import('@/components/User/Avatar') },
+  components: { Avatar: () => import('@/components/Avatar') },
 
   data() { return {
     menu: [

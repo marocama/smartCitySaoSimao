@@ -1,10 +1,10 @@
 <template>
-  <main>
+  <main class="relative">
     <!-- Header -->
     <header class="mb-5 p-4 sm:px-6 flex justify-between items-center bg-white border border-gray-200 shadow-md rounded-lg">
       <div>
         <h3 class="text-gray-600 text-lg font-medium">{{ selected || 'Guia Comercial' }}</h3>
-        <p class="text-sm text-gray-500">Exibindo {{ items.length }} resultados</p>
+        <p class="text-sm text-gray-500">Encontre comércios</p>
       </div>
       <div class="inline-flex justify-start space-x-3">
         <router-link to="/guide/announce" class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Anunciar</router-link>
@@ -12,19 +12,15 @@
       </div>
     </header>
     <!-- Conteúdo -->
-    <section class="grid grid-cols-3 gap-6">
+    <section class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
       <Card v-for="(item, index) in items" :key="index" :data="item" />
     </section>
-    <div class="py-5 flex justify-center space-x-5">
-      <button type="button" class="p-2 inline-flex bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md">
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-        <span class="px-2">Anterior</span>
-      </button>
-      <button type="button" class="p-2 inline-flex bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md">
-        <span class="px-2">Próximo</span>
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    <div class="py-5 flex justify-center">
+      <button v-if="last !== null" @click="load" type="button" class="p-2 inline-flex bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-medium rounded-md">
+        <span class="px-2">Carregar mais</span>
       </button>
     </div>
+    <div v-if="loading" class="-m-1 absolute inset-0 bg-gray-300 opacity-60 rounded-lg animate-pulse z-10" />
     <SliderOver v-model="menu" :size="$store.state.mobile ? 'sm' : 'xs'" title="Categoria" subtitle="Filtre os resultados da sua busca.">
       <ul class="grid grid-cols-2 gap-3">
         <button @click="get(item.label)" v-for="(item, index) in options" :key="index" type="button" class="p-3 h-18 flex flex-col items-center justify-center hover:bg-gray-50 rounded-lg" :class="item.label === selected ? 'border-2 bg-purple-50 border-purple-600 text-purple-600' : 'border border-gray-200 text-gray-500'">
@@ -42,13 +38,16 @@ import { GuideColl } from '@/firebase'
 export default {
   components: {
     Card: () => import('@/components/Cards/Guide'),
-    SliderOver: () => import('@/components/SlideOver/Default'),
+    SliderOver: () => import('@/components/SlideOver'),
   },
 
   data() { return {
     items: [],
+    last: null,
     menu: false,
+    query: null,
     selected: '',
+    loading: false,
     options: [
       { label: 'Bebidas e Alimentos', icon: `<path d="M7 4.5c-.3 0-.5.3-.5.5v2.5h-1V5c0-.3-.2-.5-.5-.5s-.5.3-.5.5v2.5h-1V5c0-.3-.2-.5-.5-.5s-.5.3-.5.5v3.3c0 .9.7 1.6 1.5 1.7v7c0 .6.4 1 1 1s1-.4 1-1v-7c.8-.1 1.5-.8 1.5-1.7V5c0-.2-.2-.5-.5-.5zM9 5v6h1v6c0 .6.4 1 1 1s1-.4 1-1V2c-1.7 0-3 1.3-3 3zm7-1c-1.4 0-2.5 1.5-2.5 3.3c-.1 1.2.5 2.3 1.5 3V17c0 .6.4 1 1 1s1-.4 1-1v-6.7c1-.7 1.6-1.8 1.5-3C18.5 5.5 17.4 4 16 4z" fill="currentColor" />` },
       { label: 'Esportes', icon: `<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" fill="currentColor" />` },
@@ -60,20 +59,33 @@ export default {
     ],
   } },
 
-  mounted() {
-    this.get()
-  },
+  mounted() { this.get() },
 
   methods: {
     async get(item) {
       this.selected = (item === this.selected) ? '' : item
 
-      const query = this.selected ? GuideColl.where('Sector', '==', this.selected) : GuideColl.orderBy('CreatedAt', 'desc')
+      this.query = this.selected ? GuideColl.where('Sector', '==', this.selected) : GuideColl.orderBy('CreatedAt', 'desc')
 
-      await query.limit(8).get()
-      .then(result => { console.log(result), this.items = result.docs.map(item => { return { id: item.id, ...item.data() } }) })
-      .catch(err => console.log(err))
+      await this.query.limit(6).get()
+      .then(result => {
+        this.last = result.docs.length < 6 ? null : (result.docs[result.docs.length - 1] || null)
+        this.items = result.docs.map(item => { return { id: item.id, ...item.data() } })
+      })
+      .catch(() => this.$toast.error('Erro ao carregar, tente novamente.'))
+    },
+
+    async load() {
+      this.loading = true
+
+      this.query.startAfter(this.last).limit(6).get()
+      .then(result => {
+        this.last = result.docs.length < 6 ? null : (result.docs[result.docs.length - 1] || null)
+        this.items.push(...result.docs.map(item => { return { id: item.id, ...item.data() } }))
+      })
+      .catch(() => this.$toast.error('Erro ao carregar, tente novamente.'))
+      this.loading = false
     }
-  },
+  }
 }
 </script>

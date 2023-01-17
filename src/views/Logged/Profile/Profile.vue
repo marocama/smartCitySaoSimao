@@ -44,7 +44,7 @@ import { auth, UsersColl } from '@/firebase'
 
 export default {
   components: {
-    Avatar: () => import('@/components/User/Avatar'),
+    Avatar: () => import('@/components/Avatar'),
     Input: () => import('@/components/Inputs/Default'),
     Select: () => import('@/components/Inputs/Select'),
     InputMask: () => import('@/components/Inputs/Mask'),
@@ -97,6 +97,7 @@ export default {
       })
       this.$toast.success('Dados atualizados com sucesso')
       this.loading = false
+      this.$store.dispatch('fetchUserProfile')
     }
   },
   

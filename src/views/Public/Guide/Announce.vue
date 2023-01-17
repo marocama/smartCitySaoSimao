@@ -89,7 +89,7 @@ export default {
     Input: () => import('@/components/Inputs/Default'),
     Select: () => import('@/components/Inputs/Select'),
     InputMask: () => import('@/components/Inputs/Mask'),
-    Button: () => import('@/components/Buttons/Default'),
+    Button: () => import('@/components/Button'),
   },
     
   data() { return {
@@ -108,6 +108,8 @@ export default {
       Time: { Sunday: { Start: '', End: '' }, Monday: { Start: '', End: '' }, Tuesday: { Start: '', End: '' }, Wednesday: { Start: '', End: '' }, Thursday: { Start: '', End: '' }, Friday: { Start: '', End: '' }, Saturday: { Start: '', End: '' } },
     },
   }},
+
+  mounted() { if (!this.$store.state.user.Whatsapp) { this.$toast.error('Preencha seu whatsapp para continuar.'), this.$router.push('/profile') } },
     
   methods: {
     async announce(step) {

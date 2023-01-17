@@ -50,10 +50,15 @@ const routes = [
     ]
   },
   {
+    path: '/city',
+    name: 'Município',
+    component: () => import(/* webpackChunkName: "city" */ '@/views/Public/City'),
+  },
+  {
     path: '/auth',
     name: 'Auth',
     meta: { extended: true },
-    component: () => import(/* webpackChunkName: "auth" */ '../views/Public/Auth/Index')
+    component: () => import(/* webpackChunkName: "auth" */ '../views/Public/Auth')
   },
   {
     path: '/profile',
@@ -76,39 +81,7 @@ const routes = [
     path: '*',
     name: '404',
     component: () => import(/* webpackChunkName: "404" */ '@/views/Public/404'),
-  },
-  
-
-  {
-    path: '/transport',
-    name: 'Transporte Acessível',
-    component: () => import(/* webpackChunkName: "transport" */ '@/views/Public/SmartSolutions/Transport/Index')
-  },
-  {
-    path: '/smartSolutions',
-    name: 'Soluções2',
-    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Index'),
-  },
-  {
-    path: '/rides',
-    name: 'Carona Solidária',
-    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Ride/Index'),
-  },
-  {
-    path: '/organic',
-    name: 'Produtos Orgânicos',
-    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/OrganicAds/Index'),
-  },
-  {
-    path: '/trash',
-    name: 'Resíduos Sólidos',
-    component: () => import(/* webpackChunkName: "smartSolutions" */ '@/views/Public/SmartSolutions/Trash/Index'),
-  },
-  {
-    path: '/city',
-    name: 'Município',
-    component: () => import(/* webpackChunkName: "city" */ '@/views/Public/City'),
-  },
+  }
 ]
 
 const router = new VueRouter({

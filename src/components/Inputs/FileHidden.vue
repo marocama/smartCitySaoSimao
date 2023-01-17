@@ -6,7 +6,7 @@
     class="hidden"
     v-model="file"
     credits="false"
-    :required="true"
+    :required="false"
     :instant-upload="true"
     :drop-validation="true"
     min-file-size="1KB"

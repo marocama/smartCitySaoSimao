@@ -1,5 +1,5 @@
 <template>
-  <main class="-mt-2 md:mt-0 lg:grid lg:grid-cols-12 bg-white divide-y divide-gray-200 lg:divide-y-0 lg:divide-x rounded-lg shadow">
+  <main class="lg:grid lg:grid-cols-12 bg-white divide-y divide-gray-200 lg:divide-y-0 lg:divide-x rounded-lg shadow">
     <aside class="py-5 lg:col-span-3 space-y-1 text-gray-500 text-sm font-medium">
       <router-link to="/profile" class="py-2 px-3 flex items-center border-l-4 border-transparent hover:opacity-80" exact-active-class="border-purple-500 text-purple-500"><svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Perfil</router-link>
       <router-link to="/profile/password" class="py-2 px-3 flex items-center border-l-4 border-transparent hover:opacity-80" exact-active-class="border-purple-500 text-purple-500"><svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>Senha</router-link>

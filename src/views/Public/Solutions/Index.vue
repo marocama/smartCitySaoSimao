@@ -43,7 +43,7 @@
       </router-link>
     </ul>
     <section class="h-full bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
-      <div v-if="$route.name === 'Solucões Inteligentes'" class="p-4 h-full flex flex-col justify-center items-center">
+      <div v-if="$route.name === 'Solucões'" class="p-4 h-full flex flex-col justify-center items-center">
         <img :src="require('@/assets/5278.svg')" class="h-72" />
         <p class="text-2xl font-bold antialiased">Soluções Inteligentes</p>
         <p class="mt-3 w-2/3 text-gray-500 text-center">Recursos para auxiliar o munícipe de São Simão e incentivar a sustentabilidade e o desenvolvimento local.</p>

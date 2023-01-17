@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-full flex">
+  <div class="h-full flex">
     <div class="px-4 sm:px-6 lg:px-20 xl:px-24 flex flex-1 flex-col justify-center lg:flex-none">
       <div class="mx-auto w-full max-w-sm lg:w-96">
         <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">{{ { 'login': 'Faça login em sua conta', 'forgot': 'Recupere sua conta', 'register-1': 'Cadastre sua conta', 'register-2': 'Informe seu endereço' }[form] }}</h2>
@@ -74,7 +74,6 @@ export default {
     loading: false,
     forgot: { email: ''},
     err: { show: false, list: {} },
-    logged: auth.currentUser || null,
     login: { email: '', password: '' },
     register: { name: '', email: '', password: '', address: { number: '', postalcode: '', street: '', neighborhood: '', city: '', state: '' } },
   } },
@@ -82,7 +81,7 @@ export default {
   components: {
     Input: () => import('@/components/Inputs/Default'),
     Select: () => import('@/components/Inputs/Select'),
-    Button: () => import('@/components/Buttons/Default'),
+    Button: () => import('@/components/Button'),
   },
 
   mounted() { if (auth?.currentUser?.uid || '') { this.$router.replace('/') } },

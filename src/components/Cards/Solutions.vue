@@ -1,5 +1,5 @@
 <template>
-  <article class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md" @mouseenter="arrows = true" @mouseleave="arrows = false">
+  <article class="bg-white border border-gray-200 rounded-lg hover:shadow-lg overflow-hidden shadow-md" style="height: min-content" @mouseenter="arrows = true" @mouseleave="arrows = false">
     <!-- Carrossel -->
     <div class="swiperCarousel swiper-button-hidden relative text-white rounded-b-lg overflow-hidden shadow-md z-0">
       <div class="swiper-wrapper">
@@ -10,22 +10,15 @@
       </div>
       <div v-show="arrows" class="swiper-button-next" />
       <div v-show="arrows" class="swiper-button-prev" />
-      <span class="py-0.5 px-3 absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-sm rounded-full" style="z-index: 1">{{ data.Sector }}</span>
+      <button @click="del" v-if="data.User === user.uid" type="button" class="p-2 absolute top-3 right-3 bg-red-50 hover:bg-red-100 bg-opacity-80 text-red-700 font-semibold antialiased rounded-full z-10"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg></button>
     </div>
     <!-- Conteúdo -->
-    <div class="px-3 py-2 border-b">
-      <p class="text-lg font-medium">{{ data.Title }}</p>
-      <p v-if="data.Address" class="text-sm text-gray-500">{{ data.Address.City }} / {{ data.Address.State }}</p>
-    </div>
-    <div class="py-2 grid grid-cols-2 divide-x bg-gray-50 text-gray-500 antialiased">
-      <button type="button" class="flex justify-center items-center space-x-2 hover:text-purple-500">
-        <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
-        <span>Como chegar</span>
-      </button>
-      <button type="button" class="flex justify-center items-center space-x-2 hover:text-purple-500">
-        <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
-        <span>Contato</span>
-      </button>
+    <div class="px-3 py-2 w-full flex items-center space-x-2 overflow-hidden">
+      <div class="w-full truncate">
+        <p class="text-lg font-medium truncate">{{ data.Title }}</p>
+        <p class="text-sm text-gray-500 truncate">{{ data.Description }}</p>
+      </div>
+      <button @click="callUser" type="button" class="p-2 flex-shrink-0 bg-green-50 hover:bg-green-100 bg-opacity-80 text-green-700 font-semibold antialiased rounded-full z-10"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M15 3.75a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V5.56l-4.72 4.72a.75.75 0 11-1.06-1.06l4.72-4.72h-2.69a.75.75 0 01-.75-.75z" clip-rule="evenodd" /><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" /></svg></button>
     </div>
   </article>
 </template>
@@ -33,17 +26,18 @@
 <script>
 Swiper.use([ Navigation, Lazy ])
 import 'swiper/swiper-bundle.css'
+import { auth, CollectsColl, ProductsColl, UsersColl } from '@/firebase'
 import Swiper, { Navigation, Lazy } from 'swiper'
 
 export default {
-  props: { data: { type: Object, required: true } },
-
-  components: {
-    // Dropdown: () => import('@/components/Buttons/Dropdown')
+  props: { 
+    origin: { type: String, default: ''},
+    data: { type: Object, required: true }, 
   },
 
-  data() { return {
-    arrows: false
+  data() { return { 
+    arrows: false, 
+    user: auth.currentUser || {} 
   } },
 
   mounted() {
@@ -59,6 +53,23 @@ export default {
       }
     })
   },
+
+  methods: {
+    async callUser() {
+      await UsersColl.doc(this.data.User || '').get()
+      .then(result => {
+        if (result.data()?.Whatsapp) { window.open(`https://api.whatsapp.com/send?phone=55${result.data()?.Whatsapp}&text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20${ (this.data.Title || '...').replace(/ /ig, '%20') }.`, '_blank') }
+        else { this.$toast.error('Telefone não localizado.') }
+      })
+      .catch(() => this.$toast.error('Erro ao buscar, tente novamente.'))
+    },
+
+    async del() {
+      if (this.origin === 'collects') { await CollectsColl.doc(this.data.id).delete() }
+      else if (this.origin === 'products') { await ProductsColl.doc(this.data.id).delete() }
+      this.$emit('load')
+    }
+  }
 }
 </script>
 
